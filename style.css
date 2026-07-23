@@ -116,33 +116,43 @@ main {
   animation: CardPop 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
 }
-
+.herosec {
+  /* LEFT */
+}
 .herosec .card1 {
   left: -30rem;
   transform: rotate(-10deg) scale(0.5) translateY(80px);
   animation-delay: 0.35s;
 }
-
+.herosec {
+  /* LEFT CENTER */
+}
 .herosec .card2 {
   left: -18rem;
   z-index: 2;
   transform: rotate(-4deg) scale(0.5) translateY(80px);
   animation-delay: 0.48s;
 }
-
+.herosec {
+  /* RIGHT CENTER */
+}
 .herosec .card3 {
   left: 8rem;
   z-index: 3;
   transform: rotate(4deg) scale(0.5) translateY(80px);
   animation-delay: 0.6s;
 }
-
+.herosec {
+  /* RIGHT */
+}
 .herosec .card4 {
   left: -4rem;
   transform: rotate(10deg) scale(0.5) translateY(80px);
   animation-delay: 0.73s;
 }
-
+.herosec {
+  /* Hover */
+}
 .herosec .card1:hover {
   transform: translateY(-2rem) rotate(-11deg) scale(1.002);
   z-index: 100;
