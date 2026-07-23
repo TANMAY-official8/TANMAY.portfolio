@@ -1,0 +1,343 @@
+@font-face {
+    font-family: futuracon;
+    src: url(./futura-now-headline-condensed-bd.otf);
+}
+
+@font-face {
+    font-family: deutschelander;
+    src: url(./Deutschlander-O5we.ttf);
+}
+
+@font-face {
+    font-family: futura2;
+    src: url(./FuturaNowHeadlineMedium.ttf);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    height:100%;
+    width:100%;
+}
+
+main{
+    height:100%;
+    width:100%;
+    font-family:futuracon;
+    background:#f2f2f2;
+}
+
+.herosec{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    
+    
+
+    .content{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .name{
+        font-size:8rem;
+        line-height:6rem;
+        font-weight:100;
+        letter-spacing:2px;
+        color:rgb(81, 81, 81);
+        
+
+        /* ===== POP ANIMATION ===== */
+        opacity:0;
+        transform:translateY(60px) scale(.45);
+        filter:blur(10px);
+
+        animation:PopName 1.15s cubic-bezier(.16,1,.3,1) forwards;
+        animation-delay:.25s;
+        will-change:transform;
+
+        .bname{
+            font-size: 2rem;
+            line-height: 2rem;
+            color: rgb(96, 92, 92);
+            
+            
+        }
+        .cname{
+            transition: all 0.7s ease-in-out;
+
+        }
+        .aname{
+            font-size: 1rem;
+            line-height: 6rem;
+            padding-left: 1rem;
+            text-transform: uppercase;
+
+        }
+    }
+
+    .toptext{
+        text-align:center;
+        margin-bottom:.8rem;
+
+        
+        transform:translateY(25px);
+
+        animation:FadeUp .8s ease forwards;
+
+    a{
+    display:inline-block;
+    text-decoration:none;
+    color:rgba(54,54,54,.45);
+    font-weight: 100;
+    font-family: futura2;
+    font-size: 0.7em;
+    transition: all 1s ease-out;
+}
+a:hover{
+    color:rgb(54,54,54);
+    transform: scale(2);
+
+}
+
+
+
+        h4{
+            font-size:1.2rem;
+            color:rgb(54,54,54);
+        }
+       
+
+    }
+    .cards{
+
+    margin-top:0rem;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    height:210px;
+}
+.cname:hover{
+    color: #FEFEFE;
+    background-color:rgb(81, 81, 81) ;
+    border-radius: 1rem;
+    padding-bottom: 2rem ;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.card{
+
+    position:absolute;
+
+    width:25rem;
+    border-radius:18px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.18);
+
+    opacity:0;
+
+    animation:CardPop .9s cubic-bezier(.16,1,.3,1) forwards;
+
+    transition:
+    transform .45s cubic-bezier(.16,1,.3,1),
+    box-shadow .45s ease;
+}
+
+
+/* LEFT */
+
+.card1{
+
+    left:-30rem;
+
+    transform:
+    rotate(-10deg)
+    scale(.5)
+    translateY(80px);
+
+    animation-delay:.35s;
+}
+
+
+/* LEFT CENTER */
+
+.card2{
+
+    left:-18rem;
+
+    z-index:2;
+
+    transform:
+    rotate(-4deg)
+    scale(.5)
+    translateY(80px);
+
+    animation-delay:.48s;
+}
+
+
+/* RIGHT CENTER */
+
+.card3{
+
+    left:8rem;
+
+    z-index:3;
+
+    transform:
+    rotate(4deg)
+    scale(.5)
+    translateY(80px);
+
+    animation-delay:.60s;
+}
+
+
+/* RIGHT */
+
+.card4{
+
+    left:-4rem;
+
+    transform:
+    rotate(10deg)
+    scale(.5)
+    translateY(80px);
+
+    animation-delay:.73s;
+}
+
+
+
+/* Hover */
+
+.card1:hover{
+    transform:
+        translateY(-2rem)
+        rotate(-11deg)
+        scale(1.002);
+
+    z-index:100;
+}
+
+.card2:hover{
+    transform:
+        translateY(-2rem)
+        rotate(-4deg)
+        scale(1.01);
+
+    z-index:100;
+}
+
+.card3:hover{
+    transform:
+        translateY(-2rem)
+        rotate(4deg)
+        scale(1.01);
+
+    z-index:100;
+}
+
+.card4:hover{
+    transform:
+        translateY(-2rem)
+        rotate(11deg)
+        scale(1.0001);
+
+    z-index:100;
+}
+
+.card:hover{
+    box-shadow:
+        0 35px 75px rgba(0,0,0,.28);
+}
+}
+
+
+/* ========================= */
+/* POP ANIMATION */
+/* ========================= */
+
+@keyframes PopName{
+
+    0%{
+        opacity:0;
+        transform:translateY(60px) scale(.45);
+        filter:blur(10px);
+    }
+
+    55%{
+        opacity:1;
+        transform:translateY(-10px) scale(1.12);
+        filter:blur(0);
+    }
+
+    72%{
+        transform:translateY(5px) scale(.96);
+    }
+
+    86%{
+        transform:translateY(-2px) scale(1.02);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+    }
+
+}
+
+@keyframes FadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+@keyframes CardPop{
+
+    0%{
+
+        opacity:0;
+
+        filter:blur(12px);
+
+    }
+
+    60%{
+
+        opacity:1;
+
+        filter:blur(0);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        filter:blur(0);
+
+    }
+
+}
