@@ -39,7 +39,7 @@ main {
   flex-direction: column;
   align-items: center;
 }
-.herosec .name {
+.herosec .hero-middle {
   font-size: 8rem;
   line-height: 6rem;
   font-weight: 100;
@@ -53,27 +53,27 @@ main {
   animation-delay: 0.25s;
   will-change: transform;
 }
-.herosec .name .bname {
+.herosec .hero-middle .bname {
   font-size: 2rem;
   line-height: 2rem;
   color: rgb(96, 92, 92);
 }
-.herosec .name .cname {
+.herosec .hero-middle .cname {
   transition: all 0.7s ease-in-out;
 }
-.herosec .name .aname {
+.herosec .hero-middle .aname {
   font-size: 1rem;
   line-height: 6rem;
   padding-left: 1rem;
   text-transform: uppercase;
 }
-.herosec .toptext {
+.herosec .hero-top {
   text-align: center;
   margin-bottom: 0.8rem;
   transform: translateY(25px);
   animation: FadeUp 0.8s ease forwards;
 }
-.herosec .toptext a {
+.herosec .hero-top a {
   display: inline-block;
   text-decoration: none;
   color: rgba(54, 54, 54, 0.45);
@@ -82,11 +82,11 @@ main {
   font-size: 0.7em;
   transition: all 1s ease-out;
 }
-.herosec .toptext a:hover {
+.herosec .hero-top a:hover {
   color: rgb(54, 54, 54);
-  transform: scale(2);
+  transform: scale(1.5);
 }
-.herosec .toptext h4 {
+.herosec .hero-top h4 {
   font-size: 1.2rem;
   color: rgb(54, 54, 54);
 }
