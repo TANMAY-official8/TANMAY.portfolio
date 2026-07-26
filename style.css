@@ -1,3 +1,27 @@
+/* ==========================================================================
+                                TABLE OF CONTENTS
+==============================================================================
+01. Fonts
+02. Variables
+03. Mixins
+04. Functions
+05. Reset
+06. Global Styles
+07. Typography
+08. Utilities
+09. Layout
+10. Hero Section
+11. Components
+12. Cards
+13. Sparkles
+14. Arrow
+15. Work Section
+16. Animations
+17. Responsive (Media Queries)
+============================================================================== */
+/* ==========================================================================
+   Fonts
+========================================================================== */
 @font-face {
   font-family: futuracon;
   src: url(./futura-now-headline-condensed-bd.otf);
@@ -10,6 +34,12 @@
   font-family: futura2;
   src: url(./FuturaNowHeadlineMedium.ttf);
 }
+/* ==========================================================================
+   Mixins
+========================================================================== */
+/* ==========================================================================
+   Main Styles
+========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -141,7 +171,7 @@ main {
   animation-delay: 2.3s;
 }
 .herosec .s16 {
-  top: 74%;
+  top: 174%;
   right: 38%;
   animation-delay: 4.8s;
 }
@@ -155,75 +185,8 @@ main {
   left: 65%;
   animation-delay: 1.8s;
 }
-@keyframes floatStar {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.9);
-    opacity: 0.12;
-  }
-  25% {
-    transform: translate3d(12px, -18px, 0) rotate(90deg) scale(1);
-  }
-  50% {
-    transform: translate3d(-10px, 16px, 0) rotate(180deg) scale(0.8);
-    opacity: 0.3;
-  }
-  75% {
-    transform: translate3d(14px, 8px, 0) rotate(270deg) scale(1);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) rotate(360deg) scale(0.9);
-    opacity: 0.12;
-  }
-}
-.herosec .curly-arrow {
-  position: absolute;
-  width: 17rem;
-  height: 5rem;
-  top: 40%;
-  right: 70%;
-  overflow: visible;
-  cursor: pointer;
-  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: floatArrow 2.8s ease-in-out infinite;
-}
-@keyframes floatArrow {
-  0%, 100% {
-    transform: rotate(40deg) translateY(0);
-  }
-  50% {
-    transform: rotate(60deg) translateY(12px);
-  }
-}
 
 /* For Mobile Phones (e.g., < 768px) */
-@media (max-width: 767px) {
-  .herosec {
-    padding: 4rem 1rem;
-  }
-  .hero-top h4 {
-    font-size: 1rem;
-  }
-  .hero-top a {
-    font-size: 0.8em;
-  }
-  .hero-middle {
-    text-align: center;
-    font-size: 4.5rem;
-    line-height: 4rem;
-  }
-  .hero-middle .bname {
-    font-size: 1.5rem;
-  }
-  .hero-middle .aname {
-    font-size: 0.9rem;
-    line-height: 1.5rem;
-    padding-left: 0;
-    margin-top: 2rem;
-  }
-  .card {
-    width: 100%; /* Stack cards into a single column */
-  }
-}
 .content {
   display: flex;
   flex-direction: column;
@@ -370,9 +333,176 @@ main {
 .work-sec {
   height: 100vh;
   width: 100%;
-  background-color: #f2f2f2;
+}
+.work-sec .sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.work-sec .spark {
+  position: absolute;
+  font-family: sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #222;
+  opacity: 0.18;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  animation: floatStar 10s ease-in-out infinite;
+  will-change: transform;
+}
+.work-sec .s2, .work-sec .s7, .work-sec .s10 {
+  font-size: 16px;
+}
+.work-sec .s3, .work-sec .s6 {
+  font-size: 10px;
+}
+.work-sec .s5, .work-sec .s9 {
+  opacity: 0.08;
+}
+.work-sec .s4, .work-sec .s11 {
+  opacity: 0.28;
+}
+.work-sec .s1 {
+  top: 7%;
+  left: 8%;
+  animation-delay: 1.8s;
+}
+.work-sec .s2 {
+  top: 14%;
+  left: 42%;
+  animation-delay: 1s;
+}
+.work-sec .s3 {
+  top: 18%;
+  right: 10%;
+  animation-delay: 2.2s;
+}
+.work-sec .s4 {
+  top: 36%;
+  left: 12%;
+  animation-delay: 3.4s;
+}
+.work-sec .s5 {
+  top: 42%;
+  right: 22%;
+  animation-delay: 1.8s;
+}
+.work-sec .s6 {
+  top: 58%;
+  left: 55%;
+  animation-delay: 4s;
+}
+.work-sec .s7 {
+  bottom: 12%;
+  left: 8%;
+  animation-delay: 2.6s;
+}
+.work-sec .s8 {
+  bottom: 16%;
+  right: 8%;
+  animation-delay: 5s;
+}
+.work-sec .s9 {
+  bottom: 28%;
+  left: 30%;
+  animation-delay: 1.3s;
+}
+.work-sec .s10 {
+  top: 68%;
+  right: 38%;
+  animation-delay: 3.8s;
+}
+.work-sec .s11 {
+  top: 8%;
+  left: 70%;
+  animation-delay: 5.2s;
+}
+.work-sec .s12 {
+  bottom: 8%;
+  left: 65%;
+  animation-delay: 2.8s;
+}
+.work-sec .s13 {
+  bottom: 17%;
+  left: 16%;
+  animation-delay: 3.6s;
+}
+.work-sec .s14 {
+  bottom: 23%;
+  right: 27%;
+  animation-delay: 5s;
+}
+.work-sec .s15 {
+  bottom: 3%;
+  left: 43%;
+  animation-delay: 2.3s;
+}
+.work-sec .s16 {
+  top: 174%;
+  right: 38%;
+  animation-delay: 4.8s;
+}
+.work-sec .s17 {
+  top: 62%;
+  left: 80%;
+  animation-delay: 7s;
+}
+.work-sec .s18 {
+  bottom: 27%;
+  left: 65%;
+  animation-delay: 1.8s;
 }
 
+/* ========================= */
+/* RESPONSIVENESS            */
+/* ========================= */
+/* For Tablets and smaller devices (e.g., < 992px) */
+/* This breakpoint now targets tablets, preserving the desktop layout for laptops */
+/* ==========================================================================
+   Animations
+========================================================================== */
+@keyframes floatStar {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.9);
+    opacity: 0.12;
+  }
+  25% {
+    transform: translate3d(12px, -18px, 0) rotate(90deg) scale(1);
+  }
+  50% {
+    transform: translate3d(-10px, 16px, 0) rotate(180deg) scale(0.8);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate3d(14px, 8px, 0) rotate(270deg) scale(1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(360deg) scale(0.9);
+    opacity: 0.12;
+  }
+}
+.curly-arrow {
+  position: absolute;
+  width: 17rem;
+  height: 5rem;
+  top: 40%;
+  right: 70%;
+  overflow: visible;
+  cursor: pointer;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatArrow 2.8s ease-in-out infinite;
+}
+
+@keyframes floatArrow {
+  0%, 100% {
+    transform: rotate(40deg) translateY(0);
+  }
+  50% {
+    transform: rotate(60deg) translateY(12px);
+  }
+}
 /* ========================= */
 /* POP ANIMATION             */
 /* ========================= */
@@ -423,9 +553,37 @@ main {
     filter: blur(0);
   }
 }
-/* ========================= */
-/* RESPONSIVENESS            */
-/* ========================= */
+/* ==========================================================================
+   Responsive (Media Queries)
+========================================================================== */
+@media (max-width: 767px) {
+  .herosec {
+    padding: 4rem 1rem;
+  }
+  .hero-top h4 {
+    font-size: 1rem;
+  }
+  .hero-top a {
+    font-size: 0.8em;
+  }
+  .hero-middle {
+    text-align: center;
+    font-size: 4.5rem;
+    line-height: 4rem;
+  }
+  .hero-middle .bname {
+    font-size: 1.5rem;
+  }
+  .hero-middle .aname {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+  .card {
+    width: 100%; /* Stack cards into a single column */
+  }
+}
 @media (min-width: 1800px) {
   .hero-middle {
     font-size: 10rem;
@@ -451,8 +609,6 @@ main {
     right: 75%;
   }
 }
-/* For Tablets and smaller devices (e.g., < 992px) */
-/* This breakpoint now targets tablets, preserving the desktop layout for laptops */
 @media (max-width: 992px) {
   .herosec {
     /* Allow the hero section to grow in height to fit content */

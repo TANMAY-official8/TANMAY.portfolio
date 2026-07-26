@@ -1,3 +1,30 @@
+/* ==========================================================================
+                                TABLE OF CONTENTS
+==============================================================================
+01. Fonts
+02. Variables
+03. Mixins
+04. Functions
+05. Reset
+06. Global Styles
+07. Typography
+08. Utilities
+09. Layout
+10. Hero Section
+11. Components
+12. Cards
+13. Sparkles
+14. Arrow
+15. Work Section
+16. Animations
+17. Responsive (Media Queries)
+============================================================================== */
+
+
+/* ==========================================================================
+   Fonts
+========================================================================== */
+
 @font-face {
   font-family: futuracon;
   src: url(./futura-now-headline-condensed-bd.otf);
@@ -13,32 +40,11 @@
   src: url(./FuturaNowHeadlineMedium.ttf);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ==========================================================================
+   Mixins
+========================================================================== */
 
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
-main {
-    min-height: 100vh;
-  width: 100%;
-  font-family: futuracon;
-  background: #f2f2f2;
-}
-
-.herosec {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  
-
+@mixin sparkles{
   .sparkles {
     position: absolute;
     inset: 0;
@@ -88,88 +94,50 @@ main {
   .s13 { bottom: 17%; left: 16%; animation-delay: 3.6s; }
   .s14 { bottom: 23%; right: 27%; animation-delay: 5s; }
   .s15 { bottom: 3%; left: 43%; animation-delay: 2.3s; }
-  .s16 { top: 74%; right: 38%; animation-delay: 4.8s; }
+  .s16 { top: 174%; right: 38%; animation-delay: 4.8s; }
   .s17 { top: 62%; left: 80%; animation-delay: 7s; }
   .s18 { bottom: 27%; left: 65%; animation-delay: 1.8s; }
+}
+
+/* ==========================================================================
+   Main Styles
+========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+    min-height: 100vh;
+  width: 100%;
+  font-family: futuracon;
+  background: #f2f2f2;
+}
+
+.herosec {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+   
+  @include sparkles;
 
 
-  @keyframes floatStar {
-    0% {
-      transform: translate3d(0, 0, 0) rotate(0deg) scale(.9);
-      opacity: .12;
-    }
+  
 
-    25% {
-      transform: translate3d(12px, -18px, 0) rotate(90deg) scale(1);
-    }
 
-    50% {
-      transform: translate3d(-10px, 16px, 0) rotate(180deg) scale(.8);
-      opacity: .3;
-    }
-
-    75% {
-      transform: translate3d(14px, 8px, 0) rotate(270deg) scale(1);
-    }
-
-    100% {
-      transform: translate3d(0, 0, 0) rotate(360deg) scale(.9);
-      opacity: .12;
-    }
-  }
-
-  .curly-arrow {
-    position: absolute;
-    width: 17rem;
-    height: 5rem; // Increase to 26rem or 30rem if needed
-    top: 40%;
-    right: 70%;
-    overflow: visible;
-    cursor: pointer;
-    transition: all .45s cubic-bezier(.16, 1, .3, 1);
-    animation: floatArrow 2.8s ease-in-out infinite;
-  }
-
-  @keyframes floatArrow {
-    0%, 100% {
-      transform: rotate(40deg) translateY(0);
-    }
-
-    50% {
-      transform: rotate(60deg) translateY(12px);
-    }
-  }
+  
 }
 
 /* For Mobile Phones (e.g., < 768px) */
-@media (max-width: 767px) {
-  .herosec {
-    padding: 4rem 1rem;
-  }
-  .hero-top h4 {
-    font-size: 1rem;
-  }
-  .hero-top a {
-    font-size: 0.8em;
-  }
-  .hero-middle {
-    text-align: center;
-    font-size: 4.5rem;
-    line-height: 4rem;
-  }
-  .hero-middle .bname {
-    font-size: 1.5rem;
-  }
-  .hero-middle .aname {
-    font-size: 0.9rem;
-    line-height: 1.5rem;
-    padding-left: 0;
-    margin-top: 2rem;
-  }
-  .card {
-    width: 100%; /* Stack cards into a single column */
-  }
-}
 .content {
   display: flex;
   flex-direction: column;
@@ -319,12 +287,72 @@ main {
 .card:hover {
   box-shadow: 0 35px 75px rgba(0, 0, 0, .28);
 }
-
+// ...............work section..............................
 .work-sec{
   height: 100vh;
   width: 100%;
-  background-color: #f2f2f2;
+  
+   @include sparkles;
+
 }
+
+/* ========================= */
+/* RESPONSIVENESS            */
+/* ========================= */
+
+/* For Tablets and smaller devices (e.g., < 992px) */
+/* This breakpoint now targets tablets, preserving the desktop layout for laptops */
+
+/* ==========================================================================
+   Animations
+========================================================================== */
+
+@keyframes floatStar {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(.9);
+      opacity: .12;
+    }
+
+    25% {
+      transform: translate3d(12px, -18px, 0) rotate(90deg) scale(1);
+    }
+
+    50% {
+      transform: translate3d(-10px, 16px, 0) rotate(180deg) scale(.8);
+      opacity: .3;
+    }
+
+    75% {
+      transform: translate3d(14px, 8px, 0) rotate(270deg) scale(1);
+    }
+
+    100% {
+      transform: translate3d(0, 0, 0) rotate(360deg) scale(.9);
+      opacity: .12;
+    }
+  }
+
+  .curly-arrow {
+    position: absolute;
+    width: 17rem;
+    height: 5rem; // Increase to 26rem or 30rem if needed
+    top: 40%;
+    right: 70%;
+    overflow: visible;
+    cursor: pointer;
+    transition: all .45s cubic-bezier(.16, 1, .3, 1);
+    animation: floatArrow 2.8s ease-in-out infinite;
+  }
+
+  @keyframes floatArrow {
+    0%, 100% {
+      transform: rotate(40deg) translateY(0);
+    }
+
+    50% {
+      transform: rotate(60deg) translateY(12px);
+    }
+  }
 
 
 /* ========================= */
@@ -387,10 +415,38 @@ main {
   }
 }
 
+/* ==========================================================================
+   Responsive (Media Queries)
+========================================================================== */
 
-/* ========================= */
-/* RESPONSIVENESS            */
-/* ========================= */
+@media (max-width: 767px) {
+  .herosec {
+    padding: 4rem 1rem;
+  }
+  .hero-top h4 {
+    font-size: 1rem;
+  }
+  .hero-top a {
+    font-size: 0.8em;
+  }
+  .hero-middle {
+    text-align: center;
+    font-size: 4.5rem;
+    line-height: 4rem;
+  }
+  .hero-middle .bname {
+    font-size: 1.5rem;
+  }
+  .hero-middle .aname {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+  .card {
+    width: 100%; /* Stack cards into a single column */
+  }
+}
 
 @media (min-width: 1800px) {
   .hero-middle {
@@ -417,8 +473,7 @@ main {
     right: 75%;
   }
 }
-/* For Tablets and smaller devices (e.g., < 992px) */
-/* This breakpoint now targets tablets, preserving the desktop layout for laptops */
+
 @media (max-width: 992px) {
   .herosec {
     /* Allow the hero section to grow in height to fit content */
