@@ -22,7 +22,7 @@ html, body {
 }
 
 main {
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   font-family: futuracon;
   background: #f2f2f2;
@@ -33,13 +33,204 @@ main {
   height: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
 }
-.herosec .content {
+.herosec .sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.herosec .spark {
+  position: absolute;
+  font-family: sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #222;
+  opacity: 0.18;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  animation: floatStar 10s ease-in-out infinite;
+  will-change: transform;
+}
+.herosec .s2, .herosec .s7, .herosec .s10 {
+  font-size: 16px;
+}
+.herosec .s3, .herosec .s6 {
+  font-size: 10px;
+}
+.herosec .s5, .herosec .s9 {
+  opacity: 0.08;
+}
+.herosec .s4, .herosec .s11 {
+  opacity: 0.28;
+}
+.herosec .s1 {
+  top: 7%;
+  left: 8%;
+  animation-delay: 1.8s;
+}
+.herosec .s2 {
+  top: 14%;
+  left: 42%;
+  animation-delay: 1s;
+}
+.herosec .s3 {
+  top: 18%;
+  right: 10%;
+  animation-delay: 2.2s;
+}
+.herosec .s4 {
+  top: 36%;
+  left: 12%;
+  animation-delay: 3.4s;
+}
+.herosec .s5 {
+  top: 42%;
+  right: 22%;
+  animation-delay: 1.8s;
+}
+.herosec .s6 {
+  top: 58%;
+  left: 55%;
+  animation-delay: 4s;
+}
+.herosec .s7 {
+  bottom: 12%;
+  left: 8%;
+  animation-delay: 2.6s;
+}
+.herosec .s8 {
+  bottom: 16%;
+  right: 8%;
+  animation-delay: 5s;
+}
+.herosec .s9 {
+  bottom: 28%;
+  left: 30%;
+  animation-delay: 1.3s;
+}
+.herosec .s10 {
+  top: 68%;
+  right: 38%;
+  animation-delay: 3.8s;
+}
+.herosec .s11 {
+  top: 8%;
+  left: 70%;
+  animation-delay: 5.2s;
+}
+.herosec .s12 {
+  bottom: 8%;
+  left: 65%;
+  animation-delay: 2.8s;
+}
+.herosec .s13 {
+  bottom: 17%;
+  left: 16%;
+  animation-delay: 3.6s;
+}
+.herosec .s14 {
+  bottom: 23%;
+  right: 27%;
+  animation-delay: 5s;
+}
+.herosec .s15 {
+  bottom: 3%;
+  left: 43%;
+  animation-delay: 2.3s;
+}
+.herosec .s16 {
+  top: 74%;
+  right: 38%;
+  animation-delay: 4.8s;
+}
+.herosec .s17 {
+  top: 62%;
+  left: 80%;
+  animation-delay: 7s;
+}
+.herosec .s18 {
+  bottom: 27%;
+  left: 65%;
+  animation-delay: 1.8s;
+}
+@keyframes floatStar {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.9);
+    opacity: 0.12;
+  }
+  25% {
+    transform: translate3d(12px, -18px, 0) rotate(90deg) scale(1);
+  }
+  50% {
+    transform: translate3d(-10px, 16px, 0) rotate(180deg) scale(0.8);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate3d(14px, 8px, 0) rotate(270deg) scale(1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(360deg) scale(0.9);
+    opacity: 0.12;
+  }
+}
+.herosec .curly-arrow {
+  position: absolute;
+  width: 17rem;
+  height: 5rem;
+  top: 40%;
+  right: 70%;
+  overflow: visible;
+  cursor: pointer;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatArrow 2.8s ease-in-out infinite;
+}
+@keyframes floatArrow {
+  0%, 100% {
+    transform: rotate(40deg) translateY(0);
+  }
+  50% {
+    transform: rotate(60deg) translateY(12px);
+  }
+}
+
+/* For Mobile Phones (e.g., < 768px) */
+@media (max-width: 767px) {
+  .herosec {
+    padding: 4rem 1rem;
+  }
+  .hero-top h4 {
+    font-size: 1rem;
+  }
+  .hero-top a {
+    font-size: 0.8em;
+  }
+  .hero-middle {
+    text-align: center;
+    font-size: 4.5rem;
+    line-height: 4rem;
+  }
+  .hero-middle .bname {
+    font-size: 1.5rem;
+  }
+  .hero-middle .aname {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+  .card {
+    width: 100%; /* Stack cards into a single column */
+  }
+}
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.herosec .hero-middle {
+
+.hero-middle {
   font-size: 8rem;
   line-height: 6rem;
   font-weight: 100;
@@ -53,27 +244,28 @@ main {
   animation-delay: 0.25s;
   will-change: transform;
 }
-.herosec .hero-middle .bname {
+.hero-middle .bname {
   font-size: 2rem;
   line-height: 2rem;
   color: rgb(96, 92, 92);
 }
-.herosec .hero-middle .cname {
+.hero-middle .cname {
   transition: all 0.7s ease-in-out;
 }
-.herosec .hero-middle .aname {
+.hero-middle .aname {
   font-size: 1rem;
   line-height: 6rem;
   padding-left: 1rem;
   text-transform: uppercase;
 }
-.herosec .hero-top {
+
+.hero-top {
   text-align: center;
   margin-bottom: 0.8rem;
   transform: translateY(25px);
   animation: FadeUp 0.8s ease forwards;
 }
-.herosec .hero-top a {
+.hero-top a {
   display: inline-block;
   text-decoration: none;
   color: rgba(54, 54, 54, 0.45);
@@ -82,15 +274,16 @@ main {
   font-size: 0.7em;
   transition: all 1s ease-out;
 }
-.herosec .hero-top a:hover {
+.hero-top a:hover {
   color: rgb(54, 54, 54);
   transform: scale(1.5);
 }
-.herosec .hero-top h4 {
+.hero-top h4 {
   font-size: 1.2rem;
   color: rgb(54, 54, 54);
 }
-.herosec .cards {
+
+.cards {
   margin-top: 0rem;
   display: flex;
   justify-content: center;
@@ -98,7 +291,8 @@ main {
   position: relative;
   height: 210px;
 }
-.herosec .cname:hover {
+
+.cname:hover {
   color: #FEFEFE;
   background-color: rgb(81, 81, 81);
   border-radius: 1rem;
@@ -106,7 +300,8 @@ main {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.herosec .card {
+
+.card {
   position: absolute;
   width: 25rem;
   border-radius: 18px;
@@ -116,65 +311,70 @@ main {
   animation: CardPop 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
 }
-.herosec {
-  /* LEFT */
-}
-.herosec .card1 {
+
+/* LEFT */
+.card1 {
   left: -30rem;
   transform: rotate(-10deg) scale(0.5) translateY(80px);
   animation-delay: 0.35s;
 }
-.herosec {
-  /* LEFT CENTER */
-}
-.herosec .card2 {
+
+/* LEFT CENTER */
+.card2 {
   left: -18rem;
   z-index: 2;
   transform: rotate(-4deg) scale(0.5) translateY(80px);
   animation-delay: 0.48s;
 }
-.herosec {
-  /* RIGHT CENTER */
-}
-.herosec .card3 {
+
+/* RIGHT CENTER */
+.card3 {
   left: 8rem;
   z-index: 3;
   transform: rotate(4deg) scale(0.5) translateY(80px);
   animation-delay: 0.6s;
 }
-.herosec {
-  /* RIGHT */
-}
-.herosec .card4 {
+
+/* RIGHT */
+.card4 {
   left: -4rem;
   transform: rotate(10deg) scale(0.5) translateY(80px);
   animation-delay: 0.73s;
 }
-.herosec {
-  /* Hover */
-}
-.herosec .card1:hover {
+
+/* Hover */
+.card1:hover {
   transform: translateY(-2rem) rotate(-11deg) scale(1.002);
   z-index: 100;
 }
-.herosec .card2:hover {
+
+.card2:hover {
   transform: translateY(-2rem) rotate(-4deg) scale(1.01);
   z-index: 100;
 }
-.herosec .card3:hover {
+
+.card3:hover {
   transform: translateY(-2rem) rotate(4deg) scale(1.01);
   z-index: 100;
 }
-.herosec .card4:hover {
+
+.card4:hover {
   transform: translateY(-2rem) rotate(11deg) scale(1.0001);
   z-index: 100;
 }
-.herosec .card:hover {
+
+.card:hover {
   box-shadow: 0 35px 75px rgba(0, 0, 0, 0.28);
 }
 
+.work-sec {
+  height: 100vh;
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
 /* ========================= */
-/* POP ANIMATION */
+/* POP ANIMATION             */
 /* ========================= */
 @keyframes PopName {
   0% {
@@ -221,5 +421,77 @@ main {
   100% {
     opacity: 1;
     filter: blur(0);
+  }
+}
+/* ========================= */
+/* RESPONSIVENESS            */
+/* ========================= */
+@media (min-width: 1800px) {
+  .hero-middle {
+    font-size: 10rem;
+    line-height: 8rem;
+  }
+  .card {
+    width: 30rem;
+  }
+  /* Adjust card positions to better fill the wide space */
+  .card1 {
+    left: -40rem;
+  }
+  .card2 {
+    left: -22rem;
+  }
+  .card3 {
+    left: 12rem;
+  }
+  .card4 {
+    left: -2rem;
+  }
+  .herosec .curly-arrow {
+    right: 75%;
+  }
+}
+/* For Tablets and smaller devices (e.g., < 992px) */
+/* This breakpoint now targets tablets, preserving the desktop layout for laptops */
+@media (max-width: 992px) {
+  .herosec {
+    /* Allow the hero section to grow in height to fit content */
+    height: auto;
+    padding: 6rem 2rem;
+  }
+  .herosec .curly-arrow {
+    display: none; /* The arrow is hard to position responsively */
+  }
+  .hero-middle {
+    font-size: 6rem;
+    line-height: 5rem;
+  }
+  /* 
+    On smaller screens, the absolute positioning of cards is not viable.
+    We switch to a flexible grid layou
+  */
+  .cards {
+    position: static; /* Remove absolute positioning context */
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 4rem;
+    height: auto; /* Allow height to be determined by content */
+    width: 100%;
+  }
+  .card {
+    position: static; /* Each card will now flow within the flex container */
+    width: calc(50% - 1rem); /* Create a two-column layout */
+    max-width: 28rem;
+    /* 
+      Override the complex desktop transforms. Using !important to ensure 
+      these responsive styles take precedence. The CardPop animation is kept.
+    */
+    transform: none !important;
+    left: auto !important;
+  }
+  /* Provide a simpler, responsive-friendly hover effect */
+  .card:hover {
+    transform: translateY(-12px) !important;
+    z-index: 100;
   }
 }/*# sourceMappingURL=style.css.map */

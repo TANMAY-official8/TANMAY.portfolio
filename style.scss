@@ -1,343 +1,463 @@
 @font-face {
-    font-family: futuracon;
-    src: url(./futura-now-headline-condensed-bd.otf);
+  font-family: futuracon;
+  src: url(./futura-now-headline-condensed-bd.otf);
 }
 
 @font-face {
-    font-family: deutschelander;
-    src: url(./Deutschlander-O5we.ttf);
+  font-family: deutschelander;
+  src: url(./Deutschlander-O5we.ttf);
 }
 
 @font-face {
-    font-family: futura2;
-    src: url(./FuturaNowHeadlineMedium.ttf);
+  font-family: futura2;
+  src: url(./FuturaNowHeadlineMedium.ttf);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,body{
-    height:100%;
-    width:100%;
+html, body {
+  height: 100%;
+  width: 100%;
 }
 
-main{
-    height:100%;
-    width:100%;
-    font-family:futuracon;
-    background:#f2f2f2;
+main {
+    min-height: 100vh;
+  width: 100%;
+  font-family: futuracon;
+  background: #f2f2f2;
 }
 
-.herosec{
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    
-    
+.herosec {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  
 
-    .content{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
+  .sparkles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .spark {
+    position: absolute;
+    font-family: sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #222;
+    opacity: .18;
+    user-select: none;
+    animation: floatStar 10s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .s2, .s7, .s10 {
+    font-size: 16px;
+  }
+
+  .s3, .s6 {
+    font-size: 10px;
+  }
+
+  .s5, .s9 {
+    opacity: .08;
+  }
+
+  .s4, .s11 {
+    opacity: .28;
+  }
+
+  .s1 { top: 7%; left: 8%; animation-delay: 1.8s; }
+  .s2 { top: 14%; left: 42%; animation-delay: 1s; }
+  .s3 { top: 18%; right: 10%; animation-delay: 2.2s; }
+  .s4 { top: 36%; left: 12%; animation-delay: 3.4s; }
+  .s5 { top: 42%; right: 22%; animation-delay: 1.8s; }
+  .s6 { top: 58%; left: 55%; animation-delay: 4s; }
+  .s7 { bottom: 12%; left: 8%; animation-delay: 2.6s; }
+  .s8 { bottom: 16%; right: 8%; animation-delay: 5s; }
+  .s9 { bottom: 28%; left: 30%; animation-delay: 1.3s; }
+  .s10 { top: 68%; right: 38%; animation-delay: 3.8s; }
+  .s11 { top: 8%; left: 70%; animation-delay: 5.2s; }
+  .s12 { bottom: 8%; left: 65%; animation-delay: 2.8s; }
+  .s13 { bottom: 17%; left: 16%; animation-delay: 3.6s; }
+  .s14 { bottom: 23%; right: 27%; animation-delay: 5s; }
+  .s15 { bottom: 3%; left: 43%; animation-delay: 2.3s; }
+  .s16 { top: 74%; right: 38%; animation-delay: 4.8s; }
+  .s17 { top: 62%; left: 80%; animation-delay: 7s; }
+  .s18 { bottom: 27%; left: 65%; animation-delay: 1.8s; }
+
+
+  @keyframes floatStar {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(.9);
+      opacity: .12;
     }
 
-    .hero-middle{
-        font-size:8rem;
-        line-height:6rem;
-        font-weight:100;
-        letter-spacing:2px;
-        color:rgb(81, 81, 81);
-        
-
-        /* ===== POP ANIMATION ===== */
-        opacity:0;
-        transform:translateY(60px) scale(.45);
-        filter:blur(10px);
-
-        animation:PopName 1.15s cubic-bezier(.16,1,.3,1) forwards;
-        animation-delay:.25s;
-        will-change:transform;
-
-        .bname{
-            font-size: 2rem;
-            line-height: 2rem;
-            color: rgb(96, 92, 92);
-            
-            
-        }
-        .cname{
-            transition: all 0.7s ease-in-out;
-
-        }
-        .aname{
-            font-size: 1rem;
-            line-height: 6rem;
-            padding-left: 1rem;
-            text-transform: uppercase;
-
-        }
+    25% {
+      transform: translate3d(12px, -18px, 0) rotate(90deg) scale(1);
     }
 
-    .hero-top{
-        text-align:center;
-        margin-bottom:.8rem;
+    50% {
+      transform: translate3d(-10px, 16px, 0) rotate(180deg) scale(.8);
+      opacity: .3;
+    }
 
-        
-        transform:translateY(25px);
+    75% {
+      transform: translate3d(14px, 8px, 0) rotate(270deg) scale(1);
+    }
 
-        animation:FadeUp .8s ease forwards;
+    100% {
+      transform: translate3d(0, 0, 0) rotate(360deg) scale(.9);
+      opacity: .12;
+    }
+  }
 
-    a{
-    display:inline-block;
-    text-decoration:none;
-    color:rgba(54,54,54,.45);
+  .curly-arrow {
+    position: absolute;
+    width: 17rem;
+    height: 5rem; // Increase to 26rem or 30rem if needed
+    top: 40%;
+    right: 70%;
+    overflow: visible;
+    cursor: pointer;
+    transition: all .45s cubic-bezier(.16, 1, .3, 1);
+    animation: floatArrow 2.8s ease-in-out infinite;
+  }
+
+  @keyframes floatArrow {
+    0%, 100% {
+      transform: rotate(40deg) translateY(0);
+    }
+
+    50% {
+      transform: rotate(60deg) translateY(12px);
+    }
+  }
+}
+
+/* For Mobile Phones (e.g., < 768px) */
+@media (max-width: 767px) {
+  .herosec {
+    padding: 4rem 1rem;
+  }
+  .hero-top h4 {
+    font-size: 1rem;
+  }
+  .hero-top a {
+    font-size: 0.8em;
+  }
+  .hero-middle {
+    text-align: center;
+    font-size: 4.5rem;
+    line-height: 4rem;
+  }
+  .hero-middle .bname {
+    font-size: 1.5rem;
+  }
+  .hero-middle .aname {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+  .card {
+    width: 100%; /* Stack cards into a single column */
+  }
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-middle {
+  font-size: 8rem;
+  line-height: 6rem;
+  font-weight: 100;
+  letter-spacing: 2px;
+  color: rgb(81, 81, 81);
+  /* ===== POP ANIMATION ===== */
+  opacity: 0;
+  transform: translateY(60px) scale(.45);
+  filter: blur(10px);
+  animation: PopName 1.15s cubic-bezier(.16, 1, .3, 1) forwards;
+  animation-delay: .25s;
+  will-change: transform;
+
+  .bname {
+    font-size: 2rem;
+    line-height: 2rem;
+    color: rgb(96, 92, 92);
+  }
+
+  .cname {
+    transition: all 0.7s ease-in-out;
+  }
+
+  .aname {
+    font-size: 1rem;
+    line-height: 6rem;
+    padding-left: 1rem;
+    text-transform: uppercase;
+  }
+}
+
+.hero-top {
+  text-align: center;
+  margin-bottom: .8rem;
+  transform: translateY(25px);
+  animation: FadeUp .8s ease forwards;
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: rgba(54, 54, 54, .45);
     font-weight: 100;
     font-family: futura2;
     font-size: 0.7em;
     transition: all 1s ease-out;
-}
-a:hover{
-    color:rgb(54,54,54);
+  }
+
+  a:hover {
+    color: rgb(54, 54, 54);
     transform: scale(1.5);
+  }
 
+  h4 {
+    font-size: 1.2rem;
+    color: rgb(54, 54, 54);
+  }
 }
 
-
-
-        h4{
-            font-size:1.2rem;
-            color:rgb(54,54,54);
-        }
-       
-
-    }
-    .cards{
-
-    margin-top:0rem;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    position:relative;
-
-    height:210px;
-}
-.cname:hover{
-    color: #FEFEFE;
-    background-color:rgb(81, 81, 81) ;
-    border-radius: 1rem;
-    padding-bottom: 2rem ;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-.card{
-
-    position:absolute;
-
-    width:25rem;
-    border-radius:18px;
-
-    cursor:pointer;
-
-    box-shadow:
-    0 18px 40px rgba(0,0,0,.18);
-
-    opacity:0;
-
-    animation:CardPop .9s cubic-bezier(.16,1,.3,1) forwards;
-
-    transition:
-    transform .45s cubic-bezier(.16,1,.3,1),
-    box-shadow .45s ease;
+.cards {
+  margin-top: 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 210px;
 }
 
+.cname:hover {
+  color: #FEFEFE;
+  background-color: rgb(81, 81, 81);
+  border-radius: 1rem;
+  padding-bottom: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.card {
+  position: absolute;
+  width: 25rem;
+  border-radius: 18px;
+  cursor: pointer;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .18);
+  opacity: 0;
+  animation: CardPop .9s cubic-bezier(.16, 1, .3, 1) forwards;
+  transition: transform .45s cubic-bezier(.16, 1, .3, 1),
+  box-shadow .45s ease;
+}
 
 /* LEFT */
-
-.card1{
-
-    left:-30rem;
-
-    transform:
-    rotate(-10deg)
-    scale(.5)
-    translateY(80px);
-
-    animation-delay:.35s;
+.card1 {
+  left: -30rem;
+  transform: rotate(-10deg) scale(.5) translateY(80px);
+  animation-delay: .35s;
 }
-
 
 /* LEFT CENTER */
-
-.card2{
-
-    left:-18rem;
-
-    z-index:2;
-
-    transform:
-    rotate(-4deg)
-    scale(.5)
-    translateY(80px);
-
-    animation-delay:.48s;
+.card2 {
+  left: -18rem;
+  z-index: 2;
+  transform: rotate(-4deg) scale(.5) translateY(80px);
+  animation-delay: .48s;
 }
-
 
 /* RIGHT CENTER */
-
-.card3{
-
-    left:8rem;
-
-    z-index:3;
-
-    transform:
-    rotate(4deg)
-    scale(.5)
-    translateY(80px);
-
-    animation-delay:.60s;
+.card3 {
+  left: 8rem;
+  z-index: 3;
+  transform: rotate(4deg) scale(.5) translateY(80px);
+  animation-delay: .60s;
 }
-
 
 /* RIGHT */
-
-.card4{
-
-    left:-4rem;
-
-    transform:
-    rotate(10deg)
-    scale(.5)
-    translateY(80px);
-
-    animation-delay:.73s;
+.card4 {
+  left: -4rem;
+  transform: rotate(10deg) scale(.5) translateY(80px);
+  animation-delay: .73s;
 }
-
-
 
 /* Hover */
-
-.card1:hover{
-    transform:
-        translateY(-2rem)
-        rotate(-11deg)
-        scale(1.002);
-
-    z-index:100;
+.card1:hover {
+  transform: translateY(-2rem) rotate(-11deg) scale(1.002);
+  z-index: 100;
 }
 
-.card2:hover{
-    transform:
-        translateY(-2rem)
-        rotate(-4deg)
-        scale(1.01);
-
-    z-index:100;
+.card2:hover {
+  transform: translateY(-2rem) rotate(-4deg) scale(1.01);
+  z-index: 100;
 }
 
-.card3:hover{
-    transform:
-        translateY(-2rem)
-        rotate(4deg)
-        scale(1.01);
-
-    z-index:100;
+.card3:hover {
+  transform: translateY(-2rem) rotate(4deg) scale(1.01);
+  z-index: 100;
 }
 
-.card4:hover{
-    transform:
-        translateY(-2rem)
-        rotate(11deg)
-        scale(1.0001);
-
-    z-index:100;
+.card4:hover {
+  transform: translateY(-2rem) rotate(11deg) scale(1.0001);
+  z-index: 100;
 }
 
-.card:hover{
-    box-shadow:
-        0 35px 75px rgba(0,0,0,.28);
+.card:hover {
+  box-shadow: 0 35px 75px rgba(0, 0, 0, .28);
 }
+
+.work-sec{
+  height: 100vh;
+  width: 100%;
+  background-color: #f2f2f2;
 }
 
 
 /* ========================= */
-/* POP ANIMATION */
+/* POP ANIMATION             */
+/* ========================= */
+@keyframes PopName {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(.45);
+    filter: blur(10px);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.12);
+    filter: blur(0);
+  }
+
+  72% {
+    transform: translateY(5px) scale(.96);
+  }
+
+  86% {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes FadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes CardPop {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+  }
+
+  60% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+
+/* ========================= */
+/* RESPONSIVENESS            */
 /* ========================= */
 
-@keyframes PopName{
-
-    0%{
-        opacity:0;
-        transform:translateY(60px) scale(.45);
-        filter:blur(10px);
-    }
-
-    55%{
-        opacity:1;
-        transform:translateY(-10px) scale(1.12);
-        filter:blur(0);
-    }
-
-    72%{
-        transform:translateY(5px) scale(.96);
-    }
-
-    86%{
-        transform:translateY(-2px) scale(1.02);
-    }
-
-    100%{
-        opacity:1;
-        transform:translateY(0) scale(1);
-        filter:blur(0);
-    }
-
+@media (min-width: 1800px) {
+  .hero-middle {
+    font-size: 10rem;
+    line-height: 8rem;
+  }
+  .card {
+    width: 30rem;
+  }
+  /* Adjust card positions to better fill the wide space */
+  .card1 {
+    left: -40rem;
+  }
+  .card2 {
+    left: -22rem;
+  }
+  .card3 {
+    left: 12rem;
+  }
+  .card4 {
+    left: -2rem;
+  }
+  .herosec .curly-arrow {
+    right: 75%;
+  }
 }
-
-@keyframes FadeUp{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-@keyframes CardPop{
-
-    0%{
-
-        opacity:0;
-
-        filter:blur(12px);
-
-    }
-
-    60%{
-
-        opacity:1;
-
-        filter:blur(0);
-
-    }
-
-    100%{
-
-        opacity:1;
-
-        filter:blur(0);
-
-    }
-
+/* For Tablets and smaller devices (e.g., < 992px) */
+/* This breakpoint now targets tablets, preserving the desktop layout for laptops */
+@media (max-width: 992px) {
+  .herosec {
+    /* Allow the hero section to grow in height to fit content */
+    height: auto;
+    padding: 6rem 2rem;
+  }
+  .herosec .curly-arrow {
+    display: none; /* The arrow is hard to position responsively */
+  }
+  .hero-middle {
+    font-size: 6rem;
+    line-height: 5rem;
+  }
+  /* 
+    On smaller screens, the absolute positioning of cards is not viable.
+    We switch to a flexible grid layou
+  */
+  .cards {
+    position: static; /* Remove absolute positioning context */
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 4rem;
+    height: auto; /* Allow height to be determined by content */
+    width: 100%;
+  }
+  .card {
+    position: static; /* Each card will now flow within the flex container */
+    width: calc(50% - 1rem); /* Create a two-column layout */
+    max-width: 28rem;
+    /* 
+      Override the complex desktop transforms. Using !important to ensure 
+      these responsive styles take precedence. The CardPop animation is kept.
+    */
+    transform: none !important;
+    left: auto !important;
+  }
+  /* Provide a simpler, responsive-friendly hover effect */
+  .card:hover {
+    transform: translateY(-12px) !important;
+    z-index: 100;
+  }
 }
