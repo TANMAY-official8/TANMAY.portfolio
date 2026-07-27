@@ -336,13 +336,92 @@ main {
     position: absolute;
     width: 17rem;
     height: 5rem; // Increase to 26rem or 30rem if needed
-    top: 40%;
-    right: 70%;
+    top: 10%;
+    right: 60%;
     overflow: visible;
     cursor: pointer;
     transition: all .45s cubic-bezier(.16, 1, .3, 1);
     animation: floatArrow 2.8s ease-in-out infinite;
   }
+  
+.screw {
+    position: absolute;
+    top: 0.5rem;
+    right: 86.5rem;
+    width: 18px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    animation:screwRotate 7s cubic-bezier(.65,.05,.36,1) infinite;
+    transform-origin: center;
+
+   background:
+radial-gradient(
+circle at 40% 35%,
+#a8a8a8 0%,
+#959595 18%,
+#7a7a7a 45%,
+#666666 70%,
+#4f4f4f 100%
+);
+
+    box-shadow:
+    inset 1px 1px 2px rgba(255,255,255,.18),
+    inset -2px -2px 3px rgba(0,0,0,.22),
+    0 2px 3px rgba(0,0,0,.12);
+
+    &::before,
+    &::after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:50%;
+        background:#555;
+        transform:translate(-50%,-50%);
+        border-radius:2px;
+        box-shadow:
+            0 1px 1px rgba(255,255,255,.3),
+            inset 1px 1px 1px rgba(0,0,0,.35);
+    }
+
+    &::before{
+        width:11px;
+        height:2px;
+    }
+
+    &::after{
+        width:2px;
+        height:11px;
+    }
+
+    &:hover{
+        transform:rotate(90deg);
+        transition:.5s ease;
+    }
+}
+@keyframes screwRotate {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(720deg);
+    }
+
+    
+
+    50% {
+        transform: rotate(480deg);   // Pause
+    }
+
+    75% {
+        transform: rotate(0deg);     // 2 turns left
+    }
+
+    100% {
+        transform: rotate(0deg);     // Pause
+    }
+}
 
   @keyframes floatArrow {
     0%, 100% {
@@ -350,7 +429,7 @@ main {
     }
 
     50% {
-      transform: rotate(60deg) translateY(12px);
+      transform: rotate(50deg) translateY(12px);
     }
   }
 
