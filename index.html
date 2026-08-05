@@ -24,6 +24,15 @@
   <i data-lucide="arrow-down"></i>
   
   <main>
+    <div class="construction-card">
+      <span class="construction-text">Website Under Construction</span>
+      <span class="online-dot"></span>
+    </div>
+    <div class="status-box">
+     
+      <span class="status-text">Building...</span>
+       <span class="status-dot-red"></span>
+    </div>
     <div class="herosec">
       <div class="sparkles">
     <span class="spark s1">+</span>
@@ -44,13 +53,27 @@
     <span class="spark s16">+</span>
     <span class="spark s17">+</span>
     <span class="spark s18">+</span>
+    <span class="spark s19">+</span>
+    <span class="spark s20">+</span>
+    <span class="spark s21">+</span>
+    <span class="spark s22">+</span>
+    <span class="spark s23">+</span>
+    <span class="spark s24">+</span>
+    <span class="spark s25">+</span>
+    <span class="spark s26">+</span>
+    <span class="spark s27">+</span>
+    <span class="spark s28">+</span>
 </div>
-<div class="screw"></div>
+<button class="theme-toggle-button" id="theme-toggle">
+    <span class="moon-icon">🌙</span>
+    <span class="sun-icon">☀️</span>
+</button>
+
       <div class="content">
         <div class="hero-top">
           <h4>-MERN STACK-</h4>
          
-           <a target="_blank" href="mailto:tanmaysinghmar8@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Tanmay,%0A%0AI%20would%20like%20to%20discuss%20a%20project%20with%20you.">TANMAY.official8@gmail.com</a> 
+           <a target="_blank" href="">TANMAY.official8@gmail.com</a> 
         </div>
 
         <div class="hero-middle">
@@ -106,12 +129,23 @@
       </div>
     </div>
     <div class="work-sec">
-        
+        <h3>MY SKILLS</h3>
+      <!-- <h6 class="note" >I AM BUILDING MY FIRST PORTFOLIO WEBSITE AND I HOPE U GUYS LIKE IT AND CURRENTLY MY WEBSITE IS UNDER CONSTRUCTION </h6> -->
+       
     </div>
+    
 
   </main>
   <div class="details"></div>
   <script src="script.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const main = document.querySelector('main');
+  
+    themeToggle.addEventListener('click', () => {
+      main.classList.toggle('dark-mode');
+    });
+  </script>
 </body>
 </html>

@@ -29,7 +29,14 @@
   font-family: futuracon;
   src: url(./futura-now-headline-condensed-bd.otf);
 }
-
+@font-face {
+  font-family: pixel;
+  src: url(./LowresPixel-Regular.otf);
+}
+@font-face {
+  font-family: byte;
+  src: url(./ByteBounce.ttf);
+}
 @font-face {
   font-family: deutschelander;
   src: url(./Deutschlander-O5we.ttf);
@@ -57,10 +64,11 @@
     font-weight: 300;
     font-size: 1rem;
     color: #222;
-    opacity: .18;
+    opacity: .11;
     user-select: none;
     animation: floatStar 10s ease-in-out infinite;
     will-change: transform;
+    transition: color .3s ease;
   }
 
   .s2, .s7, .s10 {
@@ -97,6 +105,16 @@
   .s16 { top: 174%; right: 38%; animation-delay: 4.8s; }
   .s17 { top: 62%; left: 80%; animation-delay: 7s; }
   .s18 { bottom: 27%; left: 65%; animation-delay: 1.8s; }
+  .s19 { top: 5%; left: 25%; animation-delay: 6s; }
+  .s20 { top: 20%; right: 5%; animation-delay: 4.5s; }
+  .s21 { bottom: 5%; left: 50%; animation-delay: 7.2s; }
+  .s22 { top: 30%; left: 70%; animation-delay: 3s; }
+  .s23 { bottom: 10%; right: 30%; animation-delay: 5.5s; }
+  .s24 { top: 45%; left: 5%; animation-delay: 8s; }
+  .s25 { top: 60%; right: 15%; animation-delay: 3.7s; }
+  .s26 { bottom: 20%; left: 15%; animation-delay: 6.5s; }
+  .s27 { top: 75%; right: 45%; animation-delay: 4.2s; }
+  .s28 { bottom: 30%; left: 80%; animation-delay: 9s; }
 }
 
 /* ==========================================================================
@@ -119,23 +137,133 @@ main {
   width: 100%;
   font-family: futuracon;
   background: #f2f2f2;
+  transition: background-color .3s ease;
 }
 
 .herosec {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   position: relative;
    
   @include sparkles;
 
+  .theme-toggle-button {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(81, 81, 81);
+    color: #f2f2f2;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    .moon-icon, .sun-icon {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sun-icon { display: none; }
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+      .moon-icon {
+        transform: rotate(360deg);
+      }
+    }
+  }
 
   
 
 
   
 }
+
+.construction-card {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1001;
+  font-family: futura2;
+  font-size: 0.9rem;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  
+  .construction-text {
+    font-weight: bold;
+  }
+
+  .online-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #28a745; // Green color
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+}
+
+.status-box {
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1001;
+  font-family: futura2;
+  font-size: 0.9rem;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  animation: slideInFromTop 1s ease-out .2s forwards;
+  opacity: 0;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  .status-text {
+    font-weight: bold;
+  }
+
+  .status-dot-red {
+    width: 10px;
+    height: 10px;
+    background-color: #e53935; // Red
+    border-radius: 50%;
+    animation: pulse-red 1.5s infinite;
+  }
+}
+
+
 
 /* For Mobile Phones (e.g., < 768px) */
 .content {
@@ -157,11 +285,13 @@ main {
   animation: PopName 1.15s cubic-bezier(.16, 1, .3, 1) forwards;
   animation-delay: .25s;
   will-change: transform;
+  transition: color .3s ease;
 
   .bname {
     font-size: 2rem;
     line-height: 2rem;
     color: rgb(96, 92, 92);
+    transition: color .3s ease;
   }
 
   .cname {
@@ -200,6 +330,7 @@ main {
   h4 {
     font-size: 1.2rem;
     color: rgb(54, 54, 54);
+    transition: color .3s ease;
   }
 }
 
@@ -291,11 +422,59 @@ main {
 .work-sec{
   height: 100vh;
   width: 100%;
-  
-   @include sparkles;
-
+  background-color: #f2f2f2;
+   display: flex;
+   justify-content: center;
+      h3{
+        font-size: 4rem;
+        font-family: byte ;
+        transition: all 2s ease-out;
+        
+      }
+      h3:hover{
+        font-size: 5rem;
+        font-family: pixel;
+        animation: float 3s linear infinite;
+      }
+     
 }
 
+
+
+
+
+
+
+
+
+
+@keyframes float{
+  0%{
+    transform: translateY(0px);
+  }
+   10%{
+    transform: translateY(5px);
+  }
+  20%{
+    transform: translateY(10px);
+  }
+   30%{
+    transform: translateY(5px);
+  }
+   40%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-5px);
+  }
+  62%{
+    transform: translateY(-10px);
+  }
+  70%{
+    transform: translateY(-5px);
+  }
+  
+}
 /* ========================= */
 /* RESPONSIVENESS            */
 /* ========================= */
@@ -304,8 +483,101 @@ main {
 /* This breakpoint now targets tablets, preserving the desktop layout for laptops */
 
 /* ==========================================================================
+   Dark Theme Styles
+========================================================================== */
+
+main.dark-mode {
+  background: rgb(81, 81, 81);
+  .spark{
+      color:#f2f2f2;
+    }
+  .hero-middle {
+    color: #f2f2f2;
+    .bname {
+      color: #e0e0e0;
+    }
+  }
+
+  .hero-top {
+    h4 {
+      color: #f2f2f2;
+    }
+    a {
+      color: rgba(242, 242, 242, 0.45);
+      &:hover {
+        color: #f2f2f2;
+      }
+    }
+  }
+
+  .cname:hover {
+    color: rgb(81, 81, 81);
+    background-color: #f2f2f2;
+  }
+  .work-sec{
+    background-color:rgb(81, 81, 81) ;
+    
+  }
+
+  .construction-card {
+    background-color: rgb(50, 50, 50);
+    color: #f2f2f2;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    &:hover {
+      box-shadow: 0 8px 15px rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .status-box {
+    background-color: rgb(50, 50, 50);
+    color: #f2f2f2;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    &:hover {
+      box-shadow: 0 8px 15px rgba(255, 255, 255, 0.2);
+    }
+  }
+  
+
+  .herosec .theme-toggle-button {
+    background-color: #f2f2f2;
+    color: rgb(81, 81, 81);
+    
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+      .sun-icon {
+        transform: rotate(360deg);
+      }
+    }
+
+    .moon-icon {
+      display: none;
+    }
+    .sun-icon {
+      display: block;
+    }
+    
+  }
+}
+
+
+/* ==========================================================================
    Animations
 ========================================================================== */
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+  }
+}
 
 @keyframes floatStar {
     0% {
@@ -332,6 +604,29 @@ main {
     }
   }
 
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(229, 57, 53, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(229, 57, 53, 0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
   .curly-arrow {
     position: absolute;
     width: 17rem;
@@ -344,92 +639,17 @@ main {
     animation: floatArrow 2.8s ease-in-out infinite;
   }
   
-.screw {
-    position: absolute;
-    top: 0.5rem;
-    right: 86.5rem;
-    width: 18px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    animation:screwRotate 7s cubic-bezier(.65,.05,.36,1) infinite;
-    transform-origin: center;
 
-   background:
-radial-gradient(
-circle at 40% 35%,
-#a8a8a8 0%,
-#959595 18%,
-#7a7a7a 45%,
-#666666 70%,
-#4f4f4f 100%
-);
-
-    box-shadow:
-    inset 1px 1px 2px rgba(255,255,255,.18),
-    inset -2px -2px 3px rgba(0,0,0,.22),
-    0 2px 3px rgba(0,0,0,.12);
-
-    &::before,
-    &::after{
-        content:"";
-        position:absolute;
-        top:50%;
-        left:50%;
-        background:#555;
-        transform:translate(-50%,-50%);
-        border-radius:2px;
-        box-shadow:
-            0 1px 1px rgba(255,255,255,.3),
-            inset 1px 1px 1px rgba(0,0,0,.35);
-    }
-
-    &::before{
-        width:11px;
-        height:2px;
-    }
-
-    &::after{
-        width:2px;
-        height:11px;
-    }
-
-    &:hover{
-        transform:rotate(90deg);
-        transition:.5s ease;
-    }
-}
-@keyframes screwRotate {
-
-    0% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(720deg);
-    }
-
-    
-
-    50% {
-        transform: rotate(480deg);   // Pause
-    }
-
-    75% {
-        transform: rotate(0deg);     // 2 turns left
-    }
-
-    100% {
-        transform: rotate(0deg);     // Pause
-    }
-}
 
   @keyframes floatArrow {
     0%, 100% {
       transform: rotate(40deg) translateY(0);
+     
     }
 
     50% {
       transform: rotate(50deg) translateY(12px);
+      
     }
   }
 
