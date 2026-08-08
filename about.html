@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Tanmay</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"> <!-- For icons -->
+    <style>
+        body {
+            font-family: 'futura2', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .about-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0; /* Sections will handle their own padding */
+            position: relative;
+            background-color: #f2f2f2; /* Default background for the main content area */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Back to Home Button */
+        .back-to-home-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(81, 81, 81);
+            color: #f2f2f2;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        .back-to-home-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+            border-radius: 1rem;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-heading {
+            font-family: 'futuracon', sans-serif;
+            font-size: 2.8rem;
+            color: rgb(81, 81, 81);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: rgb(81, 81, 81);
+            border-radius: 2px;
+        }
+
+        /* About Hero Section */
+        .about-hero-section {
+            background: linear-gradient(135deg, #f2f2f2 0%, #e0e0e0 100%);
+            min-height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .about-hero-content {
+            z-index: 1;
+            position: relative;
+        }
+        .about-title {
+            font-family: 'futuracon', sans-serif;
+            font-size: 4.5rem;
+            color: rgb(81, 81, 81);
+            margin-bottom: 1rem;
+            animation: PopName 1.15s cubic-bezier(.16, 1, .3, 1) forwards;
+            animation-delay: .25s;
+            opacity: 0;
+            transform: translateY(60px) scale(.45);
+            filter: blur(10px);
+        }
+        .about-tagline {
+            font-family: 'futura2', sans-serif;
+            font-size: 1.5rem;
+            color: rgba(81, 81, 81, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            animation: FadeUp 0.8s ease forwards;
+            animation-delay: 0.8s;
+            opacity: 0;
+            transform: translateY(25px);
+        }
+
+        /* Sparkles for About Hero (reusing existing styles from index.html) */
+        .about-hero-sparkles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        .about-hero-sparkles .spark {
+            position: absolute;
+            font-family: sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            color: #222;
+            opacity: .11;
+            user-select: none;
+            animation: floatStar 10s ease-in-out infinite;
+            will-change: transform;
+            transition: color .3s ease;
+        }
+        .about-hero-sparkles .spark:hover {
+            color: #ff0505;
+        }
+        /* Positioning for a few sparkles */
+        .about-hero-sparkles .s1 { top: 15%; left: 10%; animation-delay: 1.8s; }
+        .about-hero-sparkles .s2 { top: 25%; right: 15%; animation-delay: 1s; }
+        .about-hero-sparkles .s3 { bottom: 20%; left: 20%; animation-delay: 2.2s; }
+
+
+        /* About Journey Section (Timeline) */
+        .about-journey-section {
+            background: #fff;
+            padding: 6rem 2rem;
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            background-color: rgb(81, 81, 81);
+            top: 0;
+            bottom: 0;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            text-align: right;
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(81, 81, 81);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            border: 3px solid #f2f2f2; /* Matches body background */
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .timeline-item:hover .timeline-dot {
+            background-color: #ff0505; /* Highlight on hover */
+        }
+
+        .timeline-content {
+            width: calc(50% - 40px); /* Adjust for dot and line */
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 0.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        .timeline-content h3 {
+            font-family: 'futuracon', sans-serif;
+            font-size: 1.6rem;
+            color: rgb(81, 81, 81);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content p {
+            font-family: 'futura2', sans-serif;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0.8rem;
+        }
+        .timeline-date {
+            font-family: 'pixel', monospace; /* Using pixel font for a unique touch */
+            font-size: 0.9rem;
+            color: #777;
+            display: block;
+            margin-top: 1rem;
+        }
+
+        /* About Philosophy & Skills Section */
+        .about-philosophy-skills-section {
+            background: linear-gradient(135deg, #e0e0e0 0%, #f2f2f2 100%);
+            padding: 6rem 2rem;
+        }
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            font-family: 'futura2', sans-serif;
+            font-size: 1.1rem;
+            color: #444;
+            text-align: center;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-top: 2rem;
+        }
+        .skill-item {
+            background: #fff;
+            padding: 1.5rem 1rem;
+            border-radius: 0.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        .skill-item i {
+            font-size: 3rem;
+            color: rgb(81, 81, 81);
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+        .skill-item:hover i {
+            color: #ff0505;
+        }
+        .skill-item span {
+            font-family: 'futura2', sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* My Core Values Section */
+        .about-values-section {
+            background: #fff;
+            padding: 6rem 2rem;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 2rem;
+        }
+        .value-item {
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .value-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .value-item i {
+            font-size: 3.5rem;
+            color: rgb(81, 81, 81);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .value-item h3 {
+            font-family: 'futuracon', sans-serif;
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .value-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .about-contact-section {
+            background: linear-gradient(135deg, #e0e0e0 0%, #f2f2f2 100%);
+            padding: 6rem 2rem;
+        }
+        .contact-intro {
+            max-width: 600px;
+            margin: -2rem auto 3rem auto;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .form-group {
+            position: relative;
+        }
+        .form-group i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #999;
+            transition: color 0.3s ease;
+            pointer-events: none;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3.5rem;
+            border: 2px solid #ddd;
+            border-radius: 0.5rem;
+            background-color: #fff;
+            font-family: 'futura2', sans-serif;
+            font-size: 1rem;
+            color: #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group textarea {
+            padding: 1rem;
+            resize: vertical;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgb(81, 81, 81);
+            box-shadow: 0 0 0 3px rgba(81, 81, 81, 0.2);
+        }
+        .form-group:focus-within i {
+            color: rgb(81, 81, 81);
+        }
+        .submit-btn {
+            padding: 1rem 2rem;
+            background-color: rgb(81, 81, 81);
+            color: #f2f2f2;
+            border: none;
+            border-radius: 0.5rem;
+            font-family: 'futuracon', sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            align-self: center;
+        }
+        .submit-btn:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .submit-btn i {
+            transition: transform 0.3s ease;
+        }
+        .submit-btn:hover i {
+            transform: rotate(45deg);
+        }
+
+        /* Dark Mode Styles for About Page */
+        main.dark-mode .about-page {
+            background-color: rgb(81, 81, 81);
+            color: #f2f2f2;
+        }
+        main.dark-mode .back-to-home-button {
+            background-color: #f2f2f2;
+            color: rgb(81, 81, 81);
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+        }
+        main.dark-mode .back-to-home-button:hover {
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
+        }
+        main.dark-mode section {
+            background: rgb(50, 50, 50);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+        }
+        main.dark-mode .section-heading {
+            color: #f2f2f2;
+        }
+        main.dark-mode .section-heading::after {
+            background-color: #f2f2f2;
+        }
+        main.dark-mode .about-hero-section {
+            background: linear-gradient(135deg, rgb(81, 81, 81) 0%, rgb(60, 60, 60) 100%);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.08);
+        }
+        main.dark-mode .about-title {
+            color: #f2f2f2;
+        }
+        main.dark-mode .about-tagline {
+            color: rgba(242, 242, 242, 0.8);
+        }
+        main.dark-mode .about-hero-sparkles .spark {
+            color: #f2f2f2;
+            opacity: .18;
+        }
+        main.dark-mode .about-hero-sparkles .spark:hover {
+            color: #ff0505;
+        }
+        main.dark-mode .timeline::before {
+            background-color: #f2f2f2;
+        }
+        main.dark-mode .timeline-dot {
+            background-color: #f2f2f2;
+            border-color: rgb(81, 81, 81);
+        }
+        main.dark-mode .timeline-item:hover .timeline-dot {
+            background-color: #ff0505;
+        }
+        main.dark-mode .timeline-content {
+            background: rgb(60, 60, 60);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+        }
+        main.dark-mode .timeline-content h3 {
+            color: #f2f2f2;
+        }
+        main.dark-mode .timeline-content p {
+            color: #e0e0e0;
+        }
+        main.dark-mode .timeline-date {
+            color: #bbb;
+        }
+        main.dark-mode .about-philosophy-skills-section {
+            background: linear-gradient(135deg, rgb(60, 60, 60) 0%, rgb(81, 81, 81) 100%);
+        }
+        main.dark-mode .philosophy-content {
+            color: #e0e0e0;
+        }
+        main.dark-mode .skill-item {
+            background: rgb(60, 60, 60);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+        }
+        main.dark-mode .skill-item i {
+            color: #f2f2f2;
+        }
+        main.dark-mode .skill-item:hover i {
+            color: #ff0505;
+        }
+        main.dark-mode .skill-item span {
+            color: #f2f2f2;
+        }
+
+        main.dark-mode .about-values-section {
+            background: rgb(50, 50, 50);
+        }
+        main.dark-mode .value-item {
+            background: rgb(60, 60, 60);
+        }
+        main.dark-mode .value-item:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        main.dark-mode .value-item i {
+            color: #f2f2f2;
+        }
+        main.dark-mode .value-item h3 {
+            color: #f2f2f2;
+        }
+        main.dark-mode .value-item p {
+            color: #ccc;
+        }
+
+        main.dark-mode .about-contact-section {
+            background: linear-gradient(135deg, rgb(60, 60, 60) 0%, rgb(81, 81, 81) 100%);
+        }
+        main.dark-mode .contact-intro {
+            color: #e0e0e0;
+        }
+        main.dark-mode .form-group input,
+        main.dark-mode .form-group textarea {
+            background-color: rgb(60, 60, 60);
+            border-color: #444;
+            color: #f2f2f2;
+        }
+        main.dark-mode .form-group input:focus,
+        main.dark-mode .form-group textarea:focus {
+            border-color: #f2f2f2;
+            box-shadow: 0 0 0 3px rgba(242, 242, 242, 0.2);
+        }
+        main.dark-mode .form-group:focus-within i {
+            color: #f2f2f2;
+        }
+        main.dark-mode .submit-btn {
+            background-color: #f2f2f2;
+            color: rgb(81, 81, 81);
+        }
+        main.dark-mode .submit-btn:hover {
+            background-color: #e0e0e0;
+            box-shadow: 0 10px 20px rgba(255,255,255,0.15);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .back-to-home-button {
+                top: 1rem;
+                left: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+            .about-title {
+                font-size: 3rem;
+            }
+            .about-tagline {
+                font-size: 1.2rem;
+            }
+            .section-heading {
+                font-size: 2rem;
+            }
+            .timeline::before {
+                left: 20px; /* Adjust timeline line for smaller screens */
+            }
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 3rem;
+            }
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+            }
+            .timeline-dot {
+                left: 20px;
+                transform: translateX(-50%);
+                top: 1.5rem;
+            }
+            .timeline-content {
+                width: calc(100% - 40px); /* Full width minus space for line/dot */
+                margin-left: 40px; /* Align content with the line */
+                text-align: left !important; /* Force left align */
+                padding: 1rem;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 1rem;
+            }
+            .skill-item {
+                padding: 1rem 0.5rem;
+            }
+            .skill-item i {
+                font-size: 2.5rem;
+            }
+            .skill-item span {
+                font-size: 0.9rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-values-section, .about-contact-section {
+                padding: 4rem 1rem;
+            }
+            .form-group input {
+                padding-left: 1rem;
+            }
+            .form-group i {
+                display: none; /* Hide icons on smaller screens to save space */
+            }
+        }
+
+        /* Reusing animations from style.scss */
+        @keyframes PopName {
+            0% { opacity: 0; transform: translateY(60px) scale(.45); filter: blur(10px); }
+            55% { opacity: 1; transform: translateY(-10px) scale(1.12); filter: blur(0); }
+            72% { transform: translateY(5px) scale(.96); }
+            86% { transform: translateY(-2px) scale(1.02); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+        @keyframes FadeUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes floatStar {
+            0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(.9); opacity: .12; }
+            25% { transform: translate3d(12px, -18px, 0) rotate(90deg) scale(1); }
+            50% { transform: translate3d(-10px, 16px, 0) rotate(180deg) scale(.8); opacity: .3; }
+            75% { transform: translate3d(14px, 8px, 0) rotate(270deg) scale(1); }
+            100% { transform: translate3d(0, 0, 0) rotate(360deg) scale(.9); opacity: .12; }
+        }
+    </style>
+</head>
+<body>
+    <main class="about-page">
+        <a href="index.html" class="back-to-home-button" title="Go back to Home">
+            <i class='bx bx-home-alt'></i> <!-- Home icon from Boxicons -->
+        </a>
+
+        <!-- Section 1: Hero Introduction -->
+        <section class="about-hero-section">
+            <div class="about-hero-content">
+                <h1 class="about-title">Hello, I'm Tanmay.</h1>
+                <p class="about-tagline">A Full Stack Developer crafting digital experiences with passion and precision.</p>
+                <div class="about-hero-sparkles">
+                    <!-- Replicate a few sparkles from index.html for consistency -->
+                    <span class="spark s1">+</span>
+                    <span class="spark s2">+</span>
+                    <span class="spark s3">+</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: My Journey (Timeline) -->
+        <section class="about-journey-section">
+            <h2 class="section-heading">My Journey So Far</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>The Beginning: Diving into Web Development</h3>
+                        <p>Started my exciting journey into the world of web development, focusing on foundational technologies like HTML, CSS, and JavaScript.</p>
+                        <span class="timeline-date">2022</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Mastering the MERN Stack</h3>
+                        <p>Deep dived into the MERN stack (MongoDB, Express.js, React, Node.js), building robust and scalable full-stack applications.</p>
+                        <span class="timeline-date">2023</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Crafting Unique User Interfaces</h3>
+                        <p>Developed a keen eye for UI/UX design, focusing on creating intuitive, responsive, and aesthetically pleasing user interfaces.</p>
+                        <span class="timeline-date">2024</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Current Focus: Innovation & Learning</h3>
+                        <p>Continuously exploring new technologies and frameworks, always striving to innovate and push the boundaries of web development.</p>
+                        <span class="timeline-date">Present</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: My Philosophy & Skills -->
+        <section class="about-philosophy-skills-section">
+            <h2 class="section-heading">My Philosophy & Expertise</h2>
+            <div class="philosophy-content">
+                <p>
+                    My development philosophy revolves around creating clean, efficient, and user-centric solutions. I believe in writing code that is not only functional but also maintainable and scalable. Every project is an opportunity to learn, grow, and deliver exceptional value.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class='bx bxl-react'></i>
+                    <span>React.js</span>
+                </div>
+                <div class="skill-item">
+                    <i class='bx bxl-nodejs'></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="skill-item">
+                    <i class='bx bxl-mongodb'></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="skill-item">
+                    <i class='bx bxl-javascript'></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-item">
+                    <i class='bx bxl-html5'></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="skill-item">
+                    <i class='bx bxl-css3'></i>
+                    <span>CSS3/Sass</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: My Core Values -->
+        <section class="about-values-section">
+            <h2 class="section-heading">My Core Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <i class='bx bx-check-shield'></i>
+                    <h3>Quality</h3>
+                    <p>Committed to writing clean, efficient, and maintainable code that stands the test of time.</p>
+                </div>
+                <div class="value-item">
+                    <i class='bx bx-bulb'></i>
+                    <h3>Creativity</h3>
+                    <p>Passionate about creating unique, beautiful, and engaging user experiences from scratch.</p>
+                </div>
+                <div class="value-item">
+                    <i class='bx bx-user-voice'></i>
+                    <h3>User-Centric</h3>
+                    <p>Designing with the end-user in mind is always my priority, ensuring intuitive and accessible interfaces.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Get In Touch -->
+        <section class="about-contact-section">
+            <h2 class="section-heading">Get In Touch</h2>
+            <p class="contact-intro">
+                Have a project in mind, a question, or just want to say hello? I'd love to hear from you!
+            </p>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <i class='bx bx-user'></i>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <i class='bx bx-envelope'></i>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message <i class='bx bx-paper-plane'></i></button>
+                <div id="form-status" style="text-align: center; margin-top: 1rem; font-family: 'futura2', sans-serif;"></div>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        <script>
+    // This script handles dark mode persistence
+    // and contact form submission
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // ─────────────────────────────────────
+        // DARK MODE
+        // ─────────────────────────────────────
+
+        const mainElement = document.querySelector('main');
+
+        const isDarkMode =
+            localStorage.getItem('darkMode') === 'true';
+
+        if (isDarkMode) {
+            mainElement.classList.add('dark-mode');
+        }
+
+
+        // ─────────────────────────────────────
+        // CONTACT FORM
+        // ─────────────────────────────────────
+
+        const contactForm =
+            document.getElementById('contact-form');
+
+        const formStatus =
+            document.getElementById('form-status');
+
+
+        contactForm.addEventListener('submit', async (e) => {
+
+            // Prevent page refresh
+            e.preventDefault();
+
+
+            // Get submit button
+            const submitBtn =
+                contactForm.querySelector('.submit-btn');
+
+
+            // Show sending message
+            formStatus.textContent = 'Sending...';
+
+            formStatus.style.color =
+                mainElement.classList.contains('dark-mode')
+                    ? '#f2f2f2'
+                    : 'rgb(81, 81, 81)';
+
+
+            // Disable button while sending
+            submitBtn.disabled = true;
+
+
+            // Get form data
+            const formData = new FormData(contactForm);
+
+            const data =
+                Object.fromEntries(formData.entries());
+
+
+            try {
+
+                // Send data to Express backend
+                const response = await fetch(
+                    'http://localhost:3000/send-message',
+                    {
+                        method: 'POST',
+
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+
+                        body: JSON.stringify(data)
+                    }
+                );
+
+
+                // Convert backend response to JSON
+                const result =
+                    await response.json();
+
+
+                // ─────────────────────────────
+                // SUCCESS
+                // ─────────────────────────────
+
+                if (result.success) {
+
+                    formStatus.textContent =
+                        'Message Sent Successfully!';
+
+                    formStatus.style.color =
+                        '#28a745';
+
+                    // Clear the form
+                    contactForm.reset();
+
+                }
+
+                // ─────────────────────────────
+                // BACKEND ERROR
+                // ─────────────────────────────
+
+                else {
+
+                    throw new Error(
+                        result.message ||
+                        'An unknown error occurred.'
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                console.error('Backend Error:', error);
+
+                formStatus.textContent =
+                    'Error: Could not connect to the server.';
+
+                formStatus.style.color =
+                    '#e53935';
+
+
+            } finally {
+
+                // Enable button again
+                submitBtn.disabled = false;
+
+            }
+
+        });
+
+    });
+</script>
+    </script>
+</body>
+</html>

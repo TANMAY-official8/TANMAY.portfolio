@@ -70,6 +70,9 @@
     will-change: transform;
     transition: color .3s ease;
   }
+  .spark:hover{
+    color: #ff0505;
+  }
 
   .s2, .s7, .s10 {
     font-size: 16px;
@@ -147,6 +150,38 @@ main {
   justify-content: center;
   position: relative;
    
+  .about-me-button {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(81, 81, 81);
+    color: #f2f2f2;
+    border-radius: 50%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: futura2;
+    font-size: 0.9rem;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
   @include sparkles;
 
   .theme-toggle-button {
@@ -426,13 +461,13 @@ main {
    display: flex;
    justify-content: center;
       h3{
-        font-size: 4rem;
+        font-size: 5rem;
         font-family: byte ;
         transition: all 2s ease-out;
-        
+        color: rgb(81, 81, 81);
       }
       h3:hover{
-        font-size: 5rem;
+        font-size: 6rem;
         font-family: pixel;
         animation: float 3s linear infinite;
       }
@@ -516,6 +551,10 @@ main.dark-mode {
   }
   .work-sec{
     background-color:rgb(81, 81, 81) ;
+    h3{
+      color: #f2f2f2;
+    
+    }
     
   }
 
@@ -537,6 +576,14 @@ main.dark-mode {
     }
   }
   
+  .herosec .about-me-button {
+    background-color: #f2f2f2;
+    color: rgb(81, 81, 81);
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
 
   .herosec .theme-toggle-button {
     background-color: #f2f2f2;
@@ -559,6 +606,475 @@ main.dark-mode {
       display: block;
     }
     
+  }
+}
+
+/* ==========================================================================
+   About Page Styles (Added for the redesigned about.html)
+========================================================================== */
+
+.about-page {
+  background-color: #f2f2f2;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 2rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  .back-to-home-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(81, 81, 81);
+    color: #f2f2f2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  section {
+    padding: 4rem 0;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .section-heading {
+    font-family: 'futuracon', sans-serif;
+    font-size: 2.8rem;
+    color: rgb(81, 81, 81);
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background-color: rgb(81, 81, 81);
+      border-radius: 2px;
+    }
+  }
+
+  .about-hero-section {
+    background: linear-gradient(135deg, #f2f2f2 0%, #e0e0e0 100%);
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  }
+
+  .about-hero-content {
+    z-index: 1;
+    position: relative;
+  }
+
+  .about-title {
+    font-family: 'futuracon', sans-serif;
+    font-size: 4.5rem;
+    color: rgb(81, 81, 81);
+    margin-bottom: 1rem;
+    animation: PopName 1.15s cubic-bezier(.16, 1, .3, 1) forwards;
+    animation-delay: .25s;
+    opacity: 0;
+    transform: translateY(60px) scale(.45);
+    filter: blur(10px);
+  }
+
+  .about-tagline {
+    font-family: 'futura2', sans-serif;
+    font-size: 1.5rem;
+    color: rgba(81, 81, 81, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    animation: FadeUp 0.8s ease forwards;
+    animation-delay: 0.8s;
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  .about-hero-sparkles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    .spark {
+      position: absolute;
+      font-family: sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      color: #222;
+      opacity: .11;
+      user-select: none;
+      animation: floatStar 10s ease-in-out infinite;
+      will-change: transform;
+      transition: color .3s ease;
+
+      &:hover {
+        color: #ff0505;
+      }
+    }
+    .s1 { top: 15%; left: 10%; animation-delay: 1.8s; }
+    .s2 { top: 25%; right: 15%; animation-delay: 1s; }
+    .s3 { bottom: 20%; left: 20%; animation-delay: 2.2s; }
+  }
+
+  .about-journey-section {
+    background: #fff;
+    padding: 6rem 2rem;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 4px;
+      background-color: rgb(81, 81, 81);
+      top: 0;
+      bottom: 0;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+  }
+
+  .timeline-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    position: relative;
+
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+
+    &:nth-child(even) .timeline-content {
+      text-align: right;
+    }
+
+    &:nth-child(odd) .timeline-content {
+      text-align: left;
+    }
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(81, 81, 81);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    border: 3px solid #f2f2f2;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .timeline-item:hover .timeline-dot {
+    background-color: #ff0505;
+  }
+
+  .timeline-content {
+    width: calc(50% - 40px);
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 0.8rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    h3 {
+      font-family: 'futuracon', sans-serif;
+      font-size: 1.6rem;
+      color: rgb(81, 81, 81);
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-family: 'futura2', sans-serif;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-date {
+      font-family: 'pixel', monospace;
+      font-size: 0.9rem;
+      color: #777;
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+
+  .about-philosophy-skills-section {
+    background: linear-gradient(135deg, #e0e0e0 0%, #f2f2f2 100%);
+    padding: 6rem 2rem;
+  }
+
+  .philosophy-content {
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    font-family: 'futura2', sans-serif;
+    font-size: 1.1rem;
+    color: #444;
+    text-align: center;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 2rem;
+  }
+
+  .skill-item {
+    background: #fff;
+    padding: 1.5rem 1rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    i {
+      font-size: 3rem;
+      color: rgb(81, 81, 81);
+      margin-bottom: 0.8rem;
+      transition: color 0.3s ease;
+    }
+
+    &:hover i {
+      color: #ff0505;
+    }
+
+    span {
+      font-family: 'futura2', sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+
+  /* Dark Mode Styles for About Page */
+  &.dark-mode {
+    background-color: rgb(81, 81, 81);
+    color: #f2f2f2;
+
+    .back-to-home-button {
+      background-color: #f2f2f2;
+      color: rgb(81, 81, 81);
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
+      }
+    }
+
+    section {
+      background: rgb(50, 50, 50);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+    }
+
+    .section-heading {
+      color: #f2f2f2;
+
+      &::after {
+        background-color: #f2f2f2;
+      }
+    }
+
+    .about-hero-section {
+      background: linear-gradient(135deg, rgb(81, 81, 81) 0%, rgb(60, 60, 60) 100%);
+      box-shadow: 0 15px 40px rgba(255, 255, 255, 0.08);
+    }
+
+    .about-title {
+      color: #f2f2f2;
+    }
+
+    .about-tagline {
+      color: rgba(242, 242, 242, 0.8);
+    }
+
+    .about-hero-sparkles .spark {
+      color: #f2f2f2;
+      opacity: .18;
+
+      &:hover {
+        color: #ff0505;
+      }
+    }
+
+    .timeline::before {
+      background-color: #f2f2f2;
+    }
+
+    .timeline-dot {
+      background-color: #f2f2f2;
+      border-color: rgb(81, 81, 81);
+    }
+
+    .timeline-item:hover .timeline-dot {
+      background-color: #ff0505;
+    }
+
+    .timeline-content {
+      background: rgb(60, 60, 60);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+
+      h3 {
+        color: #f2f2f2;
+      }
+
+      p {
+        color: #e0e0e0;
+      }
+
+      .timeline-date {
+        color: #bbb;
+      }
+    }
+
+    .about-philosophy-skills-section {
+      background: linear-gradient(135deg, rgb(60, 60, 60) 0%, rgb(81, 81, 81) 100%);
+    }
+
+    .philosophy-content {
+      color: #e0e0e0;
+    }
+
+    .skill-item {
+      background: rgb(60, 60, 60);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+
+      i {
+        color: #f2f2f2;
+      }
+
+      &:hover i {
+        color: #ff0505;
+      }
+
+      span {
+        color: #f2f2f2;
+      }
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    .back-to-home-button {
+      top: 1rem;
+      left: 1rem;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+    }
+
+    .about-title {
+      font-size: 3rem;
+    }
+
+    .about-tagline {
+      font-size: 1.2rem;
+    }
+
+    .section-heading {
+      font-size: 2rem;
+    }
+
+    .timeline::before {
+      left: 20px;
+    }
+
+    .timeline-item {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+
+      &:nth-child(odd) {
+        flex-direction: column;
+      }
+    }
+
+    .timeline-dot {
+      left: 20px;
+      transform: translateX(-50%);
+      top: 1.5rem;
+    }
+
+    .timeline-content {
+      width: calc(100% - 40px);
+      margin-left: 40px;
+      text-align: left !important;
+      padding: 1rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-item {
+      padding: 1rem 0.5rem;
+
+      i {
+        font-size: 2.5rem;
+      }
+
+      span {
+        font-size: 0.9rem;
+      }
+    }
   }
 }
 
