@@ -18,6 +18,15 @@
 15. Work Section
 16. Animations
 17. Responsive (Media Queries)
+   STYLE.SCSS
+
+   - Fonts
+   - Mixins
+   - Base Styles
+   - Components & Layout
+   - Theme (Dark Mode)
+   - Animations
+   - Responsive Media Queries
 ============================================================================== */
 /* ==========================================================================
    Fonts
@@ -72,7 +81,9 @@ main {
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
+  overflow: visible;
 }
 .herosec .about-me-button {
   position: absolute;
@@ -93,15 +104,43 @@ main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
 }
+.herosec .about-me-button img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block;
+}
 .herosec .about-me-button:hover {
   transform: scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
-.herosec .about-me-button img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+.herosec .about-me-button {
+  /* THE LABEL */
+}
+.herosec .about-me-button::after {
+  content: attr(title);
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translate(-50%, -8px);
+  padding: 6px 12px;
+  background: #333;
+  color: #fff;
+  border-radius: 5px;
+  font-family: futura2, sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  z-index: 99999;
+}
+.herosec .about-me-button:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
 }
 .herosec .sparkles {
   position: absolute;
@@ -296,7 +335,8 @@ main {
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.herosec .theme-toggle-button .moon-icon, .herosec .theme-toggle-button .sun-icon {
+.herosec .theme-toggle-button .moon-icon,
+.herosec .theme-toggle-button .sun-icon {
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .herosec .theme-toggle-button .sun-icon {
@@ -310,42 +350,9 @@ main {
   transform: rotate(360deg);
 }
 
-.construction-card {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background-color: #fff;
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 1001;
-  font-family: futura2;
-  font-size: 0.9rem;
-  color: #333;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-.construction-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-}
-.construction-card .construction-text {
-  font-weight: bold;
-}
-.construction-card .online-dot {
-  width: 10px;
-  height: 10px;
-  background-color: #28a745;
-  border-radius: 50%;
-  animation: pulse 1.5s infinite;
-}
-
 .status-box {
   position: absolute;
-  top: 5rem;
+  top: 1.5rem;
   left: 1rem;
   background-color: #fff;
   padding: 10px 15px;
@@ -408,6 +415,7 @@ main {
 }
 .hero-middle .cname {
   transition: all 0.7s ease-in-out;
+  font-size: 9rem;
 }
 .hero-middle .aname {
   font-size: 1rem;
@@ -418,9 +426,11 @@ main {
 
 .hero-top {
   text-align: center;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   transform: translateY(25px);
   animation: FadeUp 0.8s ease forwards;
+  top: 1rem;
+  position: absolute;
 }
 .hero-top a {
   display: inline-block;
@@ -1123,6 +1133,7 @@ main.dark-mode .herosec .theme-toggle-button .sun-icon {
 .curly-arrow {
   position: absolute;
   width: 17rem;
+  height: 5rem;
   height: 5rem;
   top: 10%;
   right: 60%;

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Tanmay</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"> <!-- For icons -->
     <style>
         body {
@@ -427,8 +428,8 @@
             box-shadow: 0 8px 20px rgba(255, 255, 255, 0.25);
         }
         main.dark-mode section {
-            background: rgb(50, 50, 50);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+            background: rgb(60, 60, 60); /* A consistent darker grey for sections */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         main.dark-mode .section-heading {
             color: #f2f2f2;
@@ -437,8 +438,8 @@
             background-color: #f2f2f2;
         }
         main.dark-mode .about-hero-section {
-            background: linear-gradient(135deg, rgb(81, 81, 81) 0%, rgb(60, 60, 60) 100%);
-            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.08);
+            background: linear-gradient(135deg, rgb(75, 75, 75) 0%, rgb(60, 60, 60) 100%);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
         }
         main.dark-mode .about-title {
             color: #f2f2f2;
@@ -464,8 +465,8 @@
             background-color: #ff0505;
         }
         main.dark-mode .timeline-content {
-            background: rgb(60, 60, 60);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+            background: rgb(70, 70, 70); /* Slightly lighter than section for depth */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         main.dark-mode .timeline-content h3 {
             color: #f2f2f2;
@@ -477,14 +478,14 @@
             color: #bbb;
         }
         main.dark-mode .about-philosophy-skills-section {
-            background: linear-gradient(135deg, rgb(60, 60, 60) 0%, rgb(81, 81, 81) 100%);
+            background: linear-gradient(135deg, rgb(60, 60, 60) 0%, rgb(75, 75, 75) 100%);
         }
         main.dark-mode .philosophy-content {
             color: #e0e0e0;
         }
         main.dark-mode .skill-item {
             background: rgb(60, 60, 60);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         main.dark-mode .skill-item i {
             color: #f2f2f2;
@@ -497,10 +498,10 @@
         }
 
         main.dark-mode .about-values-section {
-            background: rgb(50, 50, 50);
+            background: rgb(60, 60, 60);
         }
         main.dark-mode .value-item {
-            background: rgb(60, 60, 60);
+            background: rgb(70, 70, 70);
         }
         main.dark-mode .value-item:hover {
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
@@ -516,7 +517,7 @@
         }
 
         main.dark-mode .about-contact-section {
-            background: linear-gradient(135deg, rgb(60, 60, 60) 0%, rgb(81, 81, 81) 100%);
+            background: linear-gradient(135deg, rgb(60, 60, 60) 0%, rgb(75, 75, 75) 100%);
         }
         main.dark-mode .contact-intro {
             color: #e0e0e0;
@@ -665,31 +666,33 @@
                     <div class="timeline-content">
                         <h3>The Beginning: Diving into Web Development</h3>
                         <p>Started my exciting journey into the world of web development, focusing on foundational technologies like HTML, CSS, and JavaScript.</p>
-                        <span class="timeline-date">2022</span>
+                        <span class="timeline-date">2025</span>
                     </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                     <div class="timeline-content">
+                    <h3>Current Focus: Innovation & Learning</h3>
+                        <p>Continuously exploring new technologies and frameworks, always striving to innovate and push the boundaries of web development.</p>
+                        <span class="timeline-date">Present</span>
+                        </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <h3>Mastering the MERN Stack</h3>
                         <p>Deep dived into the MERN stack (MongoDB, Express.js, React, Node.js), building robust and scalable full-stack applications.</p>
-                        <span class="timeline-date">2023</span>
+                        <span class="timeline-date">upcoming</span>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
+                       
                         <h3>Crafting Unique User Interfaces</h3>
                         <p>Developed a keen eye for UI/UX design, focusing on creating intuitive, responsive, and aesthetically pleasing user interfaces.</p>
-                        <span class="timeline-date">2024</span>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Current Focus: Innovation & Learning</h3>
-                        <p>Continuously exploring new technologies and frameworks, always striving to innovate and push the boundaries of web development.</p>
-                        <span class="timeline-date">Present</span>
+                        <span class="timeline-date">upcoming</span>
+                   
                     </div>
                 </div>
             </div>
@@ -775,146 +778,75 @@
                 <div id="form-status" style="text-align: center; margin-top: 1rem; font-family: 'futura2', sans-serif;"></div>
             </form>
         </section>
+       
     </main>
 
     <script>
-        <script>
+   
     // This script handles dark mode persistence
     // and contact form submission
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DARK MODE ---
+            const mainElement = document.querySelector('main');
+            if (localStorage.getItem('darkMode') === 'true') {
+                mainElement.classList.add('dark-mode');
+            }
 
     document.addEventListener('DOMContentLoaded', () => {
+            // --- CONTACT FORM ---
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
 
         // ─────────────────────────────────────
         // DARK MODE
         // ─────────────────────────────────────
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault(); // Prevent page refresh
 
         const mainElement = document.querySelector('main');
+                const submitBtn = contactForm.querySelector('.submit-btn');
+                formStatus.textContent = 'Sending...';
+                formStatus.style.color = mainElement.classList.contains('dark-mode') ? '#f2f2f2' : 'rgb(81, 81, 81)';
+                submitBtn.disabled = true;
 
         const isDarkMode =
             localStorage.getItem('darkMode') === 'true';
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData.entries());
 
         if (isDarkMode) {
             mainElement.classList.add('dark-mode');
         }
-
-
-        // ─────────────────────────────────────
-        // CONTACT FORM
-        // ─────────────────────────────────────
-
-        const contactForm =
-            document.getElementById('contact-form');
-
-        const formStatus =
-            document.getElementById('form-status');
-
-
-        contactForm.addEventListener('submit', async (e) => {
-
-            // Prevent page refresh
-            e.preventDefault();
-
-
-            // Get submit button
-            const submitBtn =
-                contactForm.querySelector('.submit-btn');
-
-
-            // Show sending message
-            formStatus.textContent = 'Sending...';
-
-            formStatus.style.color =
-                mainElement.classList.contains('dark-mode')
-                    ? '#f2f2f2'
-                    : 'rgb(81, 81, 81)';
-
-
-            // Disable button while sending
-            submitBtn.disabled = true;
-
-
-            // Get form data
-            const formData = new FormData(contactForm);
-
-            const data =
-                Object.fromEntries(formData.entries());
-
-
-            try {
-
-                // Send data to Express backend
-                const response = await fetch(
-                    'http://localhost:3000/send-message',
-                    {
+                try {
+                    // This endpoint 'http://localhost:3000/send-message' seems to be for a local server.
+                    // This will only work if you have a local server running at that address.
+                    const response = await fetch('http://localhost:3000/send-message', {
                         method: 'POST',
-
                         headers: {
                             'Content-Type': 'application/json'
                         },
-
                         body: JSON.stringify(data)
-                    }
-                );
+                    });
 
-
-                // Convert backend response to JSON
-                const result =
-                    await response.json();
-
-
-                // ─────────────────────────────
-                // SUCCESS
-                // ─────────────────────────────
-
-                if (result.success) {
-
-                    formStatus.textContent =
-                        'Message Sent Successfully!';
-
-                    formStatus.style.color =
-                        '#28a745';
-
-                    // Clear the form
-                    contactForm.reset();
-
-                }
-
-                // ─────────────────────────────
-                // BACKEND ERROR
-                // ─────────────────────────────
-
-                else {
-
-                    throw new Error(
-                        result.message ||
-                        'An unknown error occurred.'
-                    );
-
-                }
-
-
-            } catch (error) {
-
-                console.error('Backend Error:', error);
-
-                formStatus.textContent =
-                    'Error: Could not connect to the server.';
-
-                formStatus.style.color =
-                    '#e53935';
-
-
-            } finally {
-
-                // Enable button again
-                submitBtn.disabled = false;
-
-            }
-
-        });
+                    const result = await response.json();
 
     });
-</script>
+                    if (result.success) {
+                        formStatus.textContent = 'Message Sent Successfully!';
+                        formStatus.style.color = '#28a745';
+                        contactForm.reset();
+                    } else {
+                        throw new Error(result.message || 'An unknown error occurred.');
+                    }
+                } catch (error) {
+                    console.error('Form Submission Error:', error);
+                    formStatus.textContent = 'Error: Could not send message. Is the server running?';
+                    formStatus.style.color = '#e53935';
+                } finally {
+                    submitBtn.disabled = false; // Re-enable button
+                }
+            });
+        });
     </script>
 </body>
 </html>

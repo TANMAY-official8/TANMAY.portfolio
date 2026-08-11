@@ -1,2 +1,7 @@
 https://spencergabor.work/
 mailto:tanmaysinghmar8@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Tanmay,%0A%0AI%20would%20like%20to%20discuss%20a%20project%20with%20you.
+ <div class="timeline-content">
+                        <h3>Mastering the MERN Stack</h3>
+                        <p>Deep dived into the MERN stack (MongoDB, Express.js, React, Node.js), building robust and scalable full-stack applications.</p>
+                        <span class="timeline-date">2023</span>
+                    </div>
