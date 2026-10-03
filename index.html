@@ -21,13 +21,17 @@
     href="https://static.vecteezy.com/system/resources/thumbnails/066/118/528/small_2x/adobe-portfolio-icon-app-logo-editable-transparent-background-premium-social-media-design-for-digital-download-free-png.png">
 </head>
 <body>
+   <div class="circle">
+          
+      </div>
   <main>
-    
+   
     <div class="status-box">
      
       <span class="status-text">Building...</span>
        <span class="status-dot-red"></span>
     </div>
+      
     <div class="herosec">
         <a href="about.html"
        class="about-me-button"
@@ -71,10 +75,12 @@
           <span class="sun-icon">☀️</span>
       </button>
 
+    
+
       <div class="content">
         <div class="hero-top">
           <h4>-MERN STACK-</h4>
-          <a target="_blank" href="mailto:TANMAY.official8@gmail.com">TANMAY.official8@gmail.com</a>
+          <a target="_blank" href="mailto:TANMAY.official8@gmail.com"> TANMAY.official8@gmail.com</a>
         </div>
 
         <div class="hero-middle">
@@ -121,23 +127,26 @@
       </div>
     </div>
     <div class="work-sec">
-        <h3>MY SKILLS</h3>
+        <h3>MY PROJECTS</h3>
     </div>
   </main>
   <script src="script.js"></script>
   <script>
     const themeToggle = document.getElementById('theme-toggle');
     const mainElement = document.querySelector('main');
+    const bodyElement = document.body;
   
     // Apply dark mode on load if previously set
     document.addEventListener('DOMContentLoaded', () => {
         if (localStorage.getItem('darkMode') === 'true') {
             mainElement.classList.add('dark-mode');
+            bodyElement.classList.add('dark-mode');
         }
     });
 
     themeToggle.addEventListener('click', () => {
       mainElement.classList.toggle('dark-mode');
+      bodyElement.classList.toggle('dark-mode');
       localStorage.setItem('darkMode', mainElement.classList.contains('dark-mode'));
     });
   </script>

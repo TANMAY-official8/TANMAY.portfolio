@@ -17,7 +17,8 @@
 14. Arrow
 15. Work Section
 16. Animations
-17. Responsive (Media Queries)
+17. Preloader
+18. Responsive (Media Queries)
    STYLE.SCSS
 
    - Fonts
@@ -515,44 +516,6 @@ main {
      
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-@keyframes float{
-  0%{
-    transform: translateY(0px);
-  }
-   10%{
-    transform: translateY(5px);
-  }
-  20%{
-    transform: translateY(10px);
-  }
-   30%{
-    transform: translateY(5px);
-  }
-   40%{
-    transform: translateY(0px);
-  }
-  50%{
-    transform: translateY(-5px);
-  }
-  62%{
-    transform: translateY(-10px);
-  }
-  70%{
-    transform: translateY(-5px);
-  }
-  
-}
 /* ========================= */
 /* RESPONSIVENESS            */
 /* ========================= */
@@ -563,6 +526,7 @@ main {
 /* ==========================================================================
    Dark Theme Styles
 ========================================================================== */
+
 
 main.dark-mode {
   background: rgb(81, 81, 81);
@@ -708,7 +672,7 @@ main.dark-mode {
     color: rgb(81, 81, 81);
     margin-bottom: 3rem;
     position: relative;
-    display: inline-block;
+    display: inline-block;       
     padding-bottom: 0.5rem;
 
     &::after {
@@ -1374,14 +1338,49 @@ main.dark-mode {
     transform: translateY(-12px) !important;
     z-index: 100;
   }
+
+@keyframes pan-grid {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -30px -30px;
+  }
 }
-
-
-
-
-
-
-
-
-
-
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes drawIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateZ(20px);
+  }
+}
+@keyframes cycleStatus {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  20%, 80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@keyframes loadProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
